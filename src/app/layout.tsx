@@ -26,7 +26,7 @@ export default function RootLayout({
     <html lang='pt-BR'>
       <body className={`${nunito.variable} font-sans antialiased`}>
         <Header />
-        <main>{children}</main>
+        <main className='mx-auto max-w-4xl'>{children}</main>
       </body>
     </html>
   );
