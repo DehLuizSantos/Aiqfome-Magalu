@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export function Header() {
   return (
-    <header className='bg-primary sticky top-0 z-10 px-4 py-3 text-white'>
+    <header className='sticky top-0 z-10 bg-purple-700 px-4 py-3 text-white'>
       <div className='container mx-auto flex max-w-[1000px] items-center justify-between'>
         <div className='flex items-center gap-2'>
           <Link href={'/'}>
