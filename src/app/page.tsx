@@ -1,13 +1,13 @@
-import HomePage from '@/components/pages/HomePage';
+import Home from '@/components/pages/HomePage';
 import { Footer } from '@/components/templates/Footer';
+import { fetchRestaurants } from '@/services/restaurants';
 
-const Page = () => {
+export default async function HomePage() {
+  const restaurants = await fetchRestaurants();
+
   return (
-    <>
-      <HomePage />
-      <Footer />
-    </>
+    <div>
+      <Home restaurants={restaurants} />
+    </div>
   );
-};
-
-export default Page;
+}

@@ -3,11 +3,13 @@
 :root {
   --purple-700: #7b1fa2;
   --neutrals-100: #eecffc;
+  --white: #fff;
 }
 
 @theme inline {
   --color-purple-700: var(--purple-700);
   --color-neutrals-100: var(--neutrals-100);
+  --color-white: var(--white);
 }
 
 body {
