@@ -8,26 +8,26 @@ import { Header } from '@/components/templates/Header';
 import './globals.css';
 
 const nunito = Nunito({
-    subsets: ['latin'],
-    variable: '--font-nunito'
+  subsets: ['latin'],
+  variable: '--font-nunito'
 });
 
 export const metadata: Metadata = {
-    title: 'Aiqfome Magalu',
-    description: 'Um app de delivery feito com Next.js'
+  title: 'Aiqfome Magalu',
+  description: 'Um app de delivery feito com Next.js'
 };
 
 export default function RootLayout({
-    children
+  children
 }: Readonly<{
-    children: React.ReactNode;
+  children: React.ReactNode;
 }>) {
-    return (
-        <html lang='pt-BR'>
-            <body className={`${nunito.variable} font-sans antialiased`}>
-                <Header />
-                <main>{children}</main>
-            </body>
-        </html>
-    );
+  return (
+    <html lang='pt-BR'>
+      <body className={`${nunito.variable} font-sans antialiased`}>
+        <Header />
+        <main>{children}</main>
+      </body>
+    </html>
+  );
 }
