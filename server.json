@@ -1,0 +1,341 @@
+{
+    "restaurants": [
+        {
+            "id": "matsuri_concept",
+            "name": "Matsuri Concept",
+            "rating": 4.7,
+            "image": "/matsuri.png",
+            "deliveryFee": 0,
+            "minimumOrderPrice": 15,
+            "estimatedDeliveryTime": {
+                "min": 30,
+                "max": 40
+            },
+            "distance": 5.2,
+            "closingTime": "20:00",
+            "openingTime": "18:00",
+            "isOpen": true,
+            "freeDeliveryThreshold": 0
+        },
+        {
+            "id": "subway_av_center",
+            "name": "Subway Avenida Center",
+            "rating": 4.4,
+            "image": "/subway.png",
+            "deliveryFee": 6,
+            "minimumOrderPrice": 32,
+            "estimatedDeliveryTime": {
+                "min": 40,
+                "max": 50
+            },
+            "distance": 28,
+            "closingTime": "23:59",
+            "openingTime": "18:00",
+            "isOpen": true,
+            "freeDeliveryThreshold": 0
+        },
+        {
+            "id": "bk_colombo",
+            "name": "Burger King Colombo",
+            "rating": 5,
+            "image": "/burgerking.png",
+            "deliveryFee": 6,
+            "minimumOrderPrice": 32,
+            "estimatedDeliveryTime": {
+                "min": 60,
+                "max": 70
+            },
+            "distance": 12,
+            "closingTime": "23:59",
+            "openingTime": "18:00",
+            "isOpen": true,
+            "freeDeliveryThreshold": 0
+        },
+        {
+            "id": "bk_colombo_2",
+            "name": "Burger King Colombo",
+            "rating": 5,
+            "image": "/burgerking.png",
+            "deliveryFee": 6,
+            "minimumOrderPrice": 32,
+            "estimatedDeliveryTime": {
+                "min": 60,
+                "max": 70
+            },
+            "distance": 12,
+            "closingTime": "23:59",
+            "openingTime": "18:00",
+            "isOpen": true,
+            "freeDeliveryThreshold": 0
+        },
+        {
+            "id": "matsuri_concept",
+            "name": "Matsuri Concept",
+            "rating": 4.7,
+            "image": "/matsuri.png",
+            "deliveryFee": 0,
+            "minimumOrderPrice": 15,
+            "estimatedDeliveryTime": {
+                "min": 30,
+                "max": 40
+            },
+            "distance": 5.2,
+            "closingTime": "20:00",
+            "openingTime": "18:00",
+            "isOpen": false,
+            "freeDeliveryThreshold": 0
+        },
+        {
+            "id": "subway_av_center",
+            "name": "Subway Avenida Center",
+            "rating": 4.4,
+            "image": "/subway.png",
+            "deliveryFee": 6,
+            "minimumOrderPrice": 32,
+            "estimatedDeliveryTime": {
+                "min": 40,
+                "max": 50
+            },
+            "distance": 28,
+            "closingTime": "23:59",
+            "openingTime": "18:00",
+            "isOpen": false,
+            "freeDeliveryThreshold": 0
+        },
+        {
+            "id": "bk_colombo",
+            "name": "Burger King Colombo",
+            "rating": 5,
+            "image": "/burgerking.png",
+            "deliveryFee": 6,
+            "minimumOrderPrice": 32,
+            "estimatedDeliveryTime": {
+                "min": 60,
+                "max": 70
+            },
+            "distance": 12,
+            "closingTime": "23:59",
+            "openingTime": "18:00",
+            "isOpen": false,
+            "freeDeliveryThreshold": 0
+        },
+        {
+            "id": "bk_colombo_2",
+            "name": "Burger King Colombo",
+            "rating": 5,
+            "image": "/burgerking.png",
+            "deliveryFee": 6,
+            "minimumOrderPrice": 32,
+            "estimatedDeliveryTime": {
+                "min": 60,
+                "max": 70
+            },
+            "distance": 12,
+            "closingTime": "23:59",
+            "openingTime": "18:00",
+            "isOpen": false,
+            "freeDeliveryThreshold": 0
+        }
+    ],
+    "categories": [
+        {
+            "id": "niguiris",
+            "name": "Niguiris",
+            "restaurantId": "matsuri_concept"
+        },
+        {
+            "id": "ceviches",
+            "name": "Ceviches",
+            "restaurantId": "matsuri_concept",
+            "description": "um prato super refrescante de peixe fatiado e marinado com limão"
+        },
+        {
+            "id": "temakis",
+            "name": "Temakis",
+            "restaurantId": "matsuri_concept",
+            "description": "sushi em forma de cone com salmão e cream cheese"
+        }
+    ],
+    "products": [
+        {
+            "id": "california",
+            "categoryId": "temakis",
+            "price": 17,
+            "promotionPrice": 13.99,
+            "name": "Califórnia",
+            "restaurantId": "matsuri_concept",
+            "image": "/ceviche.png",
+            "description": "Kani, pepino e maçã ou manga",
+            "tags": [
+                "vegetarian"
+            ],
+            "isAvailable": true
+        },
+        {
+            "id": "filadelfia",
+            "categoryId": "temakis",
+            "price": 13.99,
+            "promotionPrice": 0,
+            "name": "Filadélfia",
+            "restaurantId": "matsuri_concept",
+            "image": "/ceviche.png",
+            "description": "Arroz, salmão fresco, cream cheese e cebolinha",
+            "isIncreasable": true,
+            "isAvailable": true,
+            "options": [
+                {
+                    "id": "size",
+                    "name": "qual o tamanho?",
+                    "minQuantity": 1,
+                    "maxQuantity": 1,
+                    "items": [
+                        {
+                            "id": "sz_o_1",
+                            "name": "médio",
+                            "promotionPrice": 19.9,
+                            "price": 22.9
+                        },
+                        {
+                            "id": "sz_o_2",
+                            "name": "grande",
+                            "price": 28.9
+                        }
+                    ]
+                },
+                {
+                    "id": "acompanhamentos",
+                    "name": "acompanhamentos",
+                    "minQuantity": 1,
+                    "maxQuantity": 2,
+                    "items": [
+                        {
+                            "id": "shoyu",
+                            "name": "shoyu"
+                        },
+                        {
+                            "id": "gengibre",
+                            "name": "gengibre"
+                        },
+                        {
+                            "id": "wasabi",
+                            "name": "wasabi"
+                        },
+                        {
+                            "id": "sem acompanhamentos",
+                            "name": "sem acompanhamentos"
+                        }
+                    ]
+                },
+                {
+                    "id": "bebida",
+                    "name": "vai querer bebida?",
+                    "minQuantity": 0,
+                    "maxQuantity": 0,
+                    "items": [
+                        {
+                            "id": "coca",
+                            "name": "coca-cola",
+                            "price": 5
+                        },
+                        {
+                            "id": "fanta",
+                            "name": "fanta laranja",
+                            "price": 5
+                        },
+                        {
+                            "id": "antarctica",
+                            "name": "guaraná antarctica",
+                            "price": 5
+                        },
+                        {
+                            "id": "suc_pra_lar",
+                            "name": "suco prats laranja",
+                            "price": 6
+                        },
+                        {
+                            "id": "agua_sem_gas",
+                            "name": "água sem gás",
+                            "price": 3
+                        }
+                    ]
+                },
+                {
+                    "id": "talher",
+                    "name": "precisa de talher?",
+                    "minQuantity": 1,
+                    "maxQuantity": 1,
+                    "items": [
+                        {
+                            "id": "hashi",
+                            "name": "hashi"
+                        },
+                        {
+                            "id": "garfo_faca_desc",
+                            "name": "garfo e faca descatável",
+                            "price": 1
+                        }
+                    ]
+                },
+                {
+                    "id": "others",
+                    "name": "mais alguma coisa?",
+                    "minQuantity": 0,
+                    "maxQuantity": 2,
+                    "items": [
+                        {
+                            "id": "bisc_sor",
+                            "name": "biscoito da sorte",
+                            "price": 2,
+                            "promotionPrice": 1
+                        },
+                        {
+                            "id": "rol_prim",
+                            "name": "rolinho primavera",
+                            "price": 8
+                        },
+                        {
+                            "id": "guioza",
+                            "name": "guioza",
+                            "price": 6
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "mix",
+            "categoryId": "temakis",
+            "price": 13.99,
+            "promotionPrice": 12,
+            "name": "Mix",
+            "restaurantId": "matsuri_concept",
+            "image": "/ceviche.png",
+            "description": "Escolha 3 ingredientes: shimeji, alface americana, rúcula, pepino, tomate seco, cream cheese, maionese, goiabada, banana, requeijão, molho de maracujá, manga, maçã e morango.",
+            "tags": [
+                "spicy"
+            ],
+            "isAvailable": true,
+            "isIncreasable": true
+        },
+        {
+            "id": "salmao",
+            "categoryId": "temakis",
+            "price": 13.99,
+            "promotionPrice": 10,
+            "name": "Salmão",
+            "restaurantId": "matsuri_concept",
+            "image": "/ceviche.png",
+            "description": "Alga, arroz, salmão fresco, pimenta e cebolinha",
+            "tags": [
+                "spicy"
+            ],
+            "isAvailable": true,
+            "isIncreasable": true
+        }
+    ],
+    "banner": {
+        "url": "",
+        "image": "/banner.png",
+        "alt": "banner"
+    }
+}
