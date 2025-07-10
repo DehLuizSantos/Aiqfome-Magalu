@@ -1,0 +1,31 @@
+'use client';
+
+import Image from 'next/image';
+import Link from 'next/link';
+
+export function Header() {
+    return (
+        <header className='bg-primary sticky top-0 z-10 px-4 py-3 text-white'>
+            <div className='container mx-auto flex max-w-[1000px] items-center justify-between'>
+                <div className='flex items-center gap-2'>
+                    <Link href={'/'}>
+                        <Image src='/logo.svg' alt='Logo' width={32} height={32} className='w-auto cursor-pointer' />
+                    </Link>
+
+                    <div className='ml-4 flex items-center'>
+                        <Image src='/icons/location.svg' alt='ver endereço' width={13} height={16} />
+                        <div className='ml-2 flex flex-col justify-center'>
+                            <span className='text-purple-light text-xs'>entregando em</span>
+                            <span className='flex items-center gap-1 text-sm font-medium'>
+                                Rua Mandaguari, 198
+                                <Image src='/icons/arrow-right.svg' alt='ver endereço' width={6} height={10} />
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <Image src='/icons/user.svg' alt='usuário' width={16} height={18} className='w-auto cursor-pointer' />
+            </div>
+        </header>
+    );
+}

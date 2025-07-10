@@ -1,0 +1,45 @@
+@import 'tailwindcss';
+
+:root {
+    --background: #ffffff;
+    --foreground: #f5f6f9;
+    --foreground-secondary: #eef0f5;
+    --primary: #7b1fa2;
+    --success: #027a7a;
+    --success-secondary: #02a117;
+    --success-background: #f2fafa;
+    --text-light-primary: #ffffff;
+    --text-light-secondary: #eecffc;
+    --text-light-disabled: #a8adb7;
+    --text-dark-contrast: #202326;
+    --text-dark-primary: #393a3c;
+    --text-dark-secondary: #6d6f73;
+    --dividers: #cdd1d9;
+}
+
+@theme inline {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-foreground-secondary: var(--foreground-secondary);
+    --color-footer-background: var(--foreground-secondary);
+    --color-success: var(--success);
+    --color-success-secondary: var(--success-secondary);
+    --color-success-background: var(--success-background);
+    --color-primary: var(--primary);
+    --color-light-primary: var(--text-light-primary);
+    --color-light-secondary: var(--text-light-secondary);
+    --color-dark-contrast: var(--text-dark-contrast);
+    --color-dark-primary: var(--text-dark-primary);
+    --color-dark-secondary: var(--text-dark-secondary);
+    --color-light-disabled: var(--text-light-disabled);
+    --color-border-light: var(--foreground-secondary);
+    --color-dividers: var(--dividers);
+    --font-sans: var(--font-nunito);
+    --font-mono: var(--font-geist-mono);
+}
+
+body {
+    background: var(--foreground);
+    color: var(--text-dark-primary);
+    font-family: 'Nunito', sans-serif;
+}
