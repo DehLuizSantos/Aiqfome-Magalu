@@ -13,7 +13,8 @@ export const mockRestaurants: RestaurantInterface[] = [
     closingTime: '20:00',
     openingTime: '18:00',
     isOpen: true,
-    maxValueDeliveryFee: 0
+    maxValueDeliveryFee: 0,
+    promotionRestaurant: true
   },
   {
     id: 2,
@@ -27,7 +28,8 @@ export const mockRestaurants: RestaurantInterface[] = [
     closingTime: '23:59',
     openingTime: '18:00',
     isOpen: true,
-    maxValueDeliveryFee: 0
+    maxValueDeliveryFee: 0,
+    promotionRestaurant: false
   },
   {
     id: 3,
@@ -41,7 +43,8 @@ export const mockRestaurants: RestaurantInterface[] = [
     closingTime: '23:59',
     openingTime: '18:00',
     isOpen: true,
-    maxValueDeliveryFee: 0
+    maxValueDeliveryFee: 0,
+    promotionRestaurant: true
   },
   {
     id: 4,
@@ -55,7 +58,8 @@ export const mockRestaurants: RestaurantInterface[] = [
     closingTime: '23:59',
     openingTime: '18:00',
     isOpen: true,
-    maxValueDeliveryFee: 0
+    maxValueDeliveryFee: 0,
+    promotionRestaurant: false
   },
   {
     id: 5,
@@ -69,7 +73,8 @@ export const mockRestaurants: RestaurantInterface[] = [
     closingTime: '20:00',
     openingTime: '18:00',
     isOpen: false,
-    maxValueDeliveryFee: 0
+    maxValueDeliveryFee: 0,
+    promotionRestaurant: false
   },
   {
     id: 6,
@@ -83,7 +88,8 @@ export const mockRestaurants: RestaurantInterface[] = [
     closingTime: '23:59',
     openingTime: '18:00',
     isOpen: false,
-    maxValueDeliveryFee: 0
+    maxValueDeliveryFee: 0,
+    promotionRestaurant: true
   },
   {
     id: 7,
@@ -97,7 +103,8 @@ export const mockRestaurants: RestaurantInterface[] = [
     closingTime: '23:59',
     openingTime: '18:00',
     isOpen: false,
-    maxValueDeliveryFee: 0
+    maxValueDeliveryFee: 0,
+    promotionRestaurant: true
   },
   {
     id: 8,
@@ -111,6 +118,7 @@ export const mockRestaurants: RestaurantInterface[] = [
     closingTime: '23:59',
     openingTime: '18:00',
     isOpen: false,
-    maxValueDeliveryFee: 0
+    maxValueDeliveryFee: 0,
+    promotionRestaurant: false
   }
 ];

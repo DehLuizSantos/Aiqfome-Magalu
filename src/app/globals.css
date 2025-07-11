@@ -3,13 +3,21 @@
 :root {
   --purple-700: #7b1fa2;
   --neutrals-100: #eecffc;
+  --neutrals-400: #a8adb7;
+  --neutrals-500: #6d6f73;
+  --neutrals-700: #393a3c;
+  --teal-600: #027a7a;
   --white: #fff;
 }
 
 @theme inline {
   --color-purple-700: var(--purple-700);
   --color-neutrals-100: var(--neutrals-100);
+  --color-neutrals-400: var(--neutrals-400);
+  --color-neutrals-500: var(--neutrals-500);
+  --color-neutrals-700: var(--neutrals-700);
   --color-white: var(--white);
+  --color-teal-600: var(--teal-600);
 }
 
 body {

@@ -14,6 +14,7 @@ export interface RestaurantInterface {
   closingTime: string;
   openingTime: string;
   isOpen: boolean;
+  promotionRestaurant: boolean;
 }
 
 export type HomeRestaurantInterface = Pick<
@@ -22,7 +23,3 @@ export type HomeRestaurantInterface = Pick<
 >;
 
 export type OrderRestaurant = Pick<RestaurantInterface, 'id' | 'name' | 'isOpen' | 'image'>;
-
-export interface RestaurantComponents {
-  restaurant: RestaurantInterface[];
-}
