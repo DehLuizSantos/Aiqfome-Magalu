@@ -28,9 +28,7 @@ export default async function Page() {
         />
       </div>
 
-      <>
-        <RestaurantList restaurantsInitialData={restaurants} />
-      </>
+      <RestaurantList restaurantsInitialData={restaurants} />
     </div>
   );
 }
