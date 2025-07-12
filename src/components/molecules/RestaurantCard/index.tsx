@@ -29,7 +29,7 @@ export function RestaurantCard({ type, restaurant }: RestaurantCardProps) {
   return (
     <div
       onClick={() => !isClosed && router.push(`restaurante/${restaurant.name}`)}
-      className='mt-4 flex cursor-pointer items-center gap-3 rounded-lg bg-neutral-100 transition hover:opacity-80'>
+      className={`mt-4 flex ${isClosed ? 'cursor-not-allowed' : 'cursor-pointer'} items-center gap-3 rounded-lg bg-neutral-100 transition hover:opacity-80`}>
       <Image
         src={restaurant.image}
         alt={restaurant.name}
