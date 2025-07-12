@@ -32,7 +32,7 @@ export const mockRestaurants: RestaurantInterface[] = [
             price: 10.9,
             hasPromotions: true,
             multiplePrices: true,
-            substances: ['gluten-free'],
+            type: 'gluten',
             customizations: [
               {
                 id: 'tamanho',
@@ -175,7 +175,7 @@ export const mockRestaurants: RestaurantInterface[] = [
             price: 18,
             hasPromotions: false,
             multiplePrices: false,
-            substances: ['vegan'],
+            type: 'vegan',
             customizations: [
               {
                 id: 'proteina',
@@ -373,7 +373,7 @@ export const mockRestaurants: RestaurantInterface[] = [
             price: 7,
             hasPromotions: false,
             multiplePrices: false,
-            substances: ['candy'],
+            type: 'candy',
             customizations: [
               {
                 id: 'molho',
@@ -614,7 +614,7 @@ export const mockRestaurants: RestaurantInterface[] = [
             hasPromotions: false,
             basePrice: 13.99,
             multiplePrices: true,
-            substances: ['spicy'],
+            type: 'spicy',
             customizations: [
               {
                 id: 'nivel-picancia',
@@ -721,7 +721,7 @@ export const mockRestaurants: RestaurantInterface[] = [
             price: 7,
             hasPromotions: false,
             multiplePrices: false,
-            substances: ['vegan'],
+            type: 'vegan',
             customizations: []
           }
         ]
@@ -742,7 +742,7 @@ export const mockRestaurants: RestaurantInterface[] = [
             hasPromotions: false,
             multiplePrices: false,
             customizations: [],
-            substances: ['candy']
+            type: 'candy'
           },
           {
             id: 'rolinho-primavera-doce',
@@ -754,7 +754,7 @@ export const mockRestaurants: RestaurantInterface[] = [
             hasPromotions: false,
             multiplePrices: false,
             customizations: [],
-            substances: ['candy']
+            type: 'candy'
           },
           {
             id: 'guioza-chocolate',
@@ -766,7 +766,7 @@ export const mockRestaurants: RestaurantInterface[] = [
             hasPromotions: true,
             multiplePrices: false,
             customizations: [],
-            substances: ['candy']
+            type: 'candy'
           }
         ]
       }
@@ -803,7 +803,7 @@ export const mockRestaurants: RestaurantInterface[] = [
             price: 19.9,
             hasPromotions: true,
             multiplePrices: true,
-            substances: ['gluten'],
+            type: 'gluten',
             customizations: [
               {
                 id: 'tamanho',
@@ -876,7 +876,7 @@ export const mockRestaurants: RestaurantInterface[] = [
             price: 18.9,
             hasPromotions: false,
             multiplePrices: false,
-            substances: ['vegan'],
+            type: 'vegan',
             customizations: [
               {
                 id: 'pao',
@@ -1180,7 +1180,7 @@ export const mockRestaurants: RestaurantInterface[] = [
             price: 10.9,
             hasPromotions: true,
             multiplePrices: true,
-            substances: ['gluten-free'],
+            type: 'gluten',
             customizations: [
               {
                 id: 'tamanho',
@@ -1323,7 +1323,7 @@ export const mockRestaurants: RestaurantInterface[] = [
             price: 18,
             hasPromotions: false,
             multiplePrices: false,
-            substances: ['vegan'],
+            type: 'vegan',
             customizations: [
               {
                 id: 'proteina',
@@ -1521,7 +1521,7 @@ export const mockRestaurants: RestaurantInterface[] = [
             price: 7,
             hasPromotions: false,
             multiplePrices: false,
-            substances: ['candy'],
+            type: 'candy',
             customizations: [
               {
                 id: 'molho',
@@ -1762,7 +1762,7 @@ export const mockRestaurants: RestaurantInterface[] = [
             price: 13.99,
             hasPromotions: false,
             multiplePrices: true,
-            substances: ['spicy'],
+            type: 'spicy',
             customizations: [
               {
                 id: 'nivel-picancia',
@@ -1869,7 +1869,7 @@ export const mockRestaurants: RestaurantInterface[] = [
             price: 7,
             hasPromotions: false,
             multiplePrices: false,
-            substances: ['vegan'],
+            type: 'vegan',
             customizations: []
           }
         ]
@@ -1890,7 +1890,7 @@ export const mockRestaurants: RestaurantInterface[] = [
             hasPromotions: false,
             multiplePrices: false,
             customizations: [],
-            substances: ['candy']
+            type: 'candy'
           },
           {
             id: 'rolinho-primavera-doce',
@@ -1902,7 +1902,7 @@ export const mockRestaurants: RestaurantInterface[] = [
             hasPromotions: false,
             multiplePrices: false,
             customizations: [],
-            substances: ['candy']
+            type: 'candy'
           },
           {
             id: 'guioza-chocolate',
@@ -1914,7 +1914,7 @@ export const mockRestaurants: RestaurantInterface[] = [
             hasPromotions: true,
             multiplePrices: false,
             customizations: [],
-            substances: ['candy']
+            type: 'candy'
           }
         ]
       }
@@ -1951,7 +1951,7 @@ export const mockRestaurants: RestaurantInterface[] = [
             price: 19.9,
             hasPromotions: true,
             multiplePrices: true,
-            substances: ['gluten'],
+            type: 'gluten',
             customizations: [
               {
                 id: 'tamanho',
@@ -2024,7 +2024,7 @@ export const mockRestaurants: RestaurantInterface[] = [
             price: 18.9,
             hasPromotions: false,
             multiplePrices: false,
-            substances: ['vegan'],
+            type: 'vegan',
             customizations: [
               {
                 id: 'pao',

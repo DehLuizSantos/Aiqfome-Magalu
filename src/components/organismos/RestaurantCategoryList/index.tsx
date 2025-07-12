@@ -1,6 +1,7 @@
 import Image from 'next/image';
 
 import AccordionCategories from '@/components/molecules/AccordionCategories';
+import { RestaurantProductCard } from '@/components/molecules/ProductCard';
 // import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Category } from '@/interfaces/product';
 
@@ -8,17 +9,19 @@ import { Category } from '@/interfaces/product';
 
 interface RestaurantCategoryListProps {
   categories: Category[];
+  id: string;
 }
 
-export function RestaurantCategoryList({ categories }: RestaurantCategoryListProps) {
+export function RestaurantCategoryList({ categories, id }: RestaurantCategoryListProps) {
   return (
     <div className='mt-4'>
-      <AccordionCategories
-        title='Ceviche de Salmão'
-        description='Salmão temperado com limão, cebola e pimenta'
-        hasPromotion>
-        <p className='text-sm text-gray-700'>Aqui você pode colocar os customizations, ingredientes, etc.</p>
-      </AccordionCategories>
+      {categories.map((category) => (
+        <AccordionCategories key={category.id} title={category.name} description={category.description} hasPromotion>
+          {category.products.map((product) => (
+            <RestaurantProductCard key={product.id} id={id} product={product} />
+          ))}
+        </AccordionCategories>
+      ))}
     </div>
   );
 }

@@ -32,7 +32,7 @@ export default async function RestaurantPage({ params }: { params: RestaurantPag
               minimumOrderPrice={restaurant.minimumOrderPrice}
               rating={restaurant.rating}
             />
-            <RestaurantCategoryList categories={restaurant.categories} />
+            <RestaurantCategoryList categories={restaurant.categories} id={id} />
           </div>
         </div>
       </div>

@@ -29,7 +29,7 @@ export interface Product {
   price: number;
   hasPromotions: boolean;
   multiplePrices: boolean;
-  substances?: string[];
+  type?: string;
   customizations: ProductCustomization[];
 }
 
