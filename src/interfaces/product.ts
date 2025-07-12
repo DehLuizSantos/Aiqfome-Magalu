@@ -1,41 +1,42 @@
-export interface CategoryInterface {
-  id: string;
-  name: string;
-  description?: string;
-  restaurantId: string;
-}
+type CustomizationType = 'single' | 'multiple' | 'quantity';
 
-export interface ProductCategoryInterface extends CategoryInterface {
-  products: Omit<ProductInterface, 'options' | 'image' | 'categoryId' | 'restaurantId'>[];
-}
-
-export interface ProductInterface {
+export interface CustomizationOption {
   id: string;
+  label: string;
   price: number;
-  categoryId: string;
-  promotionPrice?: number;
-  name: string;
-  restaurantId: string;
-  image?: string;
-  description?: string;
-  isAvailable: boolean;
-  isIncreasable: boolean;
-  tags?: string[];
-  options?: IProductOption[];
-}
-export interface IProductOptionItem {
-  id: string;
-  name: string;
-  price?: number;
-  promotionPrice?: number;
+  basePrice?: number;
+  hasPromotions?: boolean;
+  default?: boolean;
 }
 
-export interface IProductOption {
+export interface ProductCustomization {
   id: string;
-  name: string;
-  minQuantity: number;
-  maxQuantity: number;
-  items: IProductOptionItem[];
+  type: CustomizationType;
+  title: string;
+  subtitle?: string;
+  required: boolean;
+  min?: number;
+  max?: number;
+  options: CustomizationOption[];
 }
 
-export type IProductItemData = Pick<ProductInterface, 'restaurantId' | 'id' | 'name' | 'price'>;
+export interface Product {
+  id: string;
+  name: string;
+  description: string;
+  image: string;
+  basePrice: number;
+  price: number;
+  hasPromotions: boolean;
+  multiplePrices: boolean;
+  substances?: string[];
+  customizations: ProductCustomization[];
+}
+
+export interface Category {
+  id: string;
+  name: string;
+  description: string;
+  hasPromotions?: boolean;
+  products: Product[];
+}

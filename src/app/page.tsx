@@ -1,9 +1,6 @@
-import { Suspense } from 'react';
-
 import Image from 'next/image';
 
 import { SearchInput } from '@/components/atomos/SearchInput';
-import RestaurantSkeleton from '@/components/molecules/RestaurantSkeleton';
 import RestaurantList from '@/components/organismos/RestaurantList';
 import { fetchRestaurants } from '@/services/restaurants';
 

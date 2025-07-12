@@ -1,13 +1,11 @@
 import { mockRestaurants } from '@/api-mock/restaurants';
 import { RestaurantInterface } from '@/interfaces/restaurant';
 
-export const fetchRestaurants = (search?: string): Promise<RestaurantInterface[]> => {
+export const fetchRestaurants = (id?: number): Promise<RestaurantInterface[]> => {
   return new Promise((resolve) => {
     setTimeout(() => {
-      if (search && typeof search === 'string') {
-        const filtered = mockRestaurants.filter((restaurant) =>
-          restaurant.name.toLowerCase().includes(search.toLowerCase())
-        );
+      if (id && typeof id === 'number') {
+        const filtered = mockRestaurants.filter((restaurant) => restaurant.id === id);
         resolve(filtered);
       } else {
         resolve(mockRestaurants);

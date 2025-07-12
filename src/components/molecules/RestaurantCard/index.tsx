@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 
 import { RestaurantInterface } from '@/interfaces/restaurant';
 import { formatCurrency } from '@/utils/formats';
+import { getColor } from '@/utils/functions';
 
 export type FeeType = 'aiqentregaPurple' | 'motorcycle';
 
@@ -17,14 +18,6 @@ export function RestaurantCard({ type, restaurant }: RestaurantCardProps) {
   const router = useRouter();
 
   const isClosed = restaurant.isOpen === false;
-
-  const getColor = (type: FeeType) => {
-    const colors = {
-      motorcycle: 'text-teal-600',
-      aiqentregaPurple: 'text-purple-700'
-    };
-    return colors[type];
-  };
 
   return (
     <div
@@ -46,7 +39,7 @@ export function RestaurantCard({ type, restaurant }: RestaurantCardProps) {
           <span className={`flex items-center gap-1 font-bold ${getColor(type)}`}>
             <Image src={`/icons/${type}.svg`} alt='icon' className='h-6 w-6' width={24} height={24} />
             {restaurant.promotionRestaurant && <span className='mb-[10px] text-3xl text-neutral-400'>.</span>}
-            <p>{formatCurrency(restaurant.deliveryFee)}</p>
+            <span>{formatCurrency(restaurant.deliveryFee)}</span>
           </span>
           <span className='text-warning flex items-center gap-1'>
             <Image src={'/icons/star.svg'} alt='Nota' width={18} height={18} />
