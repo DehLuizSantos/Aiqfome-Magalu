@@ -14,7 +14,8 @@ export const mockRestaurants: RestaurantInterface[] = [
     openingTime: '18:00',
     isOpen: true,
     maxValueDeliveryFee: 0,
-    promotionRestaurant: true
+    promotionRestaurant: true,
+    category: 'japones'
   },
   {
     id: 2,
@@ -29,7 +30,8 @@ export const mockRestaurants: RestaurantInterface[] = [
     openingTime: '18:00',
     isOpen: true,
     maxValueDeliveryFee: 0,
-    promotionRestaurant: false
+    promotionRestaurant: false,
+    category: 'lanches'
   },
   {
     id: 3,
@@ -44,7 +46,8 @@ export const mockRestaurants: RestaurantInterface[] = [
     openingTime: '18:00',
     isOpen: true,
     maxValueDeliveryFee: 0,
-    promotionRestaurant: true
+    promotionRestaurant: true,
+    category: 'lanches'
   },
   {
     id: 4,
@@ -59,7 +62,8 @@ export const mockRestaurants: RestaurantInterface[] = [
     openingTime: '18:00',
     isOpen: true,
     maxValueDeliveryFee: 0,
-    promotionRestaurant: false
+    promotionRestaurant: false,
+    category: 'lanches'
   },
   {
     id: 5,
@@ -74,7 +78,8 @@ export const mockRestaurants: RestaurantInterface[] = [
     openingTime: '18:00',
     isOpen: false,
     maxValueDeliveryFee: 0,
-    promotionRestaurant: false
+    promotionRestaurant: false,
+    category: 'japones'
   },
   {
     id: 6,
@@ -89,7 +94,8 @@ export const mockRestaurants: RestaurantInterface[] = [
     openingTime: '18:00',
     isOpen: false,
     maxValueDeliveryFee: 0,
-    promotionRestaurant: true
+    promotionRestaurant: true,
+    category: 'saudavel'
   },
   {
     id: 7,
@@ -104,7 +110,8 @@ export const mockRestaurants: RestaurantInterface[] = [
     openingTime: '18:00',
     isOpen: false,
     maxValueDeliveryFee: 0,
-    promotionRestaurant: true
+    promotionRestaurant: true,
+    category: 'lanches'
   },
   {
     id: 8,
@@ -119,6 +126,7 @@ export const mockRestaurants: RestaurantInterface[] = [
     openingTime: '18:00',
     isOpen: false,
     maxValueDeliveryFee: 0,
-    promotionRestaurant: false
+    promotionRestaurant: false,
+    category: 'lanches'
   }
 ];

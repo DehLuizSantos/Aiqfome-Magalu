@@ -1,6 +1,6 @@
 export default function RestaurantSkeleton() {
   return (
-    <div className='relative top-[220px] space-y-4'>
+    <div className='relative top-[30px] space-y-4'>
       {Array.from({ length: 4 }).map((_, i) => (
         <div key={i} className='flex animate-pulse items-start space-x-4 rounded-lg border p-4'>
           <div className='h-20 w-20 rounded-md bg-gray-300' />

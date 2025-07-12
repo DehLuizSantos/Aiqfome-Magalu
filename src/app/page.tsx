@@ -2,13 +2,13 @@ import { Suspense } from 'react';
 
 import Image from 'next/image';
 
-import { mockRestaurants } from '@/api-mock/restaurants';
 import { SearchInput } from '@/components/atomos/SearchInput';
 import RestaurantSkeleton from '@/components/molecules/RestaurantSkeleton';
 import RestaurantList from '@/components/organismos/RestaurantList';
+import { fetchRestaurants } from '@/services/restaurants';
 
 export default async function Page() {
-  //   const restaurants = await fetchRestaurants();
+  const restaurants = await fetchRestaurants();
 
   return (
     <div className='flex min-h-screen flex-col'>
@@ -21,13 +21,16 @@ export default async function Page() {
           alt='Banner'
           width={1600}
           height={600}
+          loading='lazy'
+          placeholder='blur'
+          blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z/C/HgAGgwJ/lK3Q6wAAAABJRU5ErkJggg=='
           className='h-auto w-full rounded-none sm:rounded-lg'
         />
       </div>
 
-      <Suspense fallback={<RestaurantSkeleton />}>
-        <RestaurantList restaurants={mockRestaurants} />
-      </Suspense>
+      <>
+        <RestaurantList restaurantsInitialData={restaurants} />
+      </>
     </div>
   );
 }

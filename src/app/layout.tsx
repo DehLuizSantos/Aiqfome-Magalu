@@ -16,7 +16,8 @@ const nunito = Nunito({
 
 export const metadata: Metadata = {
   title: 'Aiqfome Magalu',
-  description: 'Um app de delivery feito com Next.js'
+  description: '2 maior app de delivery do Brasil',
+  icons: '/logo.svg'
 };
 
 export default function RootLayout({

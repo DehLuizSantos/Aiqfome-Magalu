@@ -22,7 +22,7 @@ export function Header() {
           </div>
         </div>
 
-        <Image src='/icons/user.svg' alt='usuário' width={24} height={24} className='cursor-pointer' />
+        <Image src='/icons/user.svg' alt='usuário' width={16} height={18} className='cursor-pointer' />
       </div>
     </header>
   );

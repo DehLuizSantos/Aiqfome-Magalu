@@ -1,5 +1,3 @@
-'use client';
-
 import { mockRestaurants } from '@/api-mock/restaurants';
 import { RestaurantInterface } from '@/interfaces/restaurant';
 

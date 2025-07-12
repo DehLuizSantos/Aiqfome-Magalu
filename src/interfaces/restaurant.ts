@@ -15,6 +15,7 @@ export interface RestaurantInterface {
   openingTime: string;
   isOpen: boolean;
   promotionRestaurant: boolean;
+  category: 'lanches' | 'saudavel' | 'japones';
 }
 
 export type HomeRestaurantInterface = Pick<

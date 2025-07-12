@@ -1,6 +1,11 @@
+'use client';
+
 import Image from 'next/image';
 
+import useRestaurantsStore from '@/stores/restaurantStore';
+
 export function SearchInput() {
+  const { setRestaurants } = useRestaurantsStore();
   return (
     <div className='bg-purple-700 px-4 pt-2 pb-4'>
       <div className='container mx-auto max-w-[1000px]'>
@@ -16,6 +21,7 @@ export function SearchInput() {
             type='text'
             placeholder='busque pela loja ou culinária'
             className='text-text-light placeholder:text-gray-icons w-full rounded-md bg-white py-2 pl-10 text-sm shadow-sm'
+            onChange={(e) => setRestaurants(e.target.value)}
           />
         </div>
       </div>
