@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { Nunito } from 'next/font/google';
 
+import Providers from '@/Providers';
+import { Footer } from '@/components/templates/Footer';
 import { Header } from '@/components/templates/Header';
 
 // import { Header } from '@/components/Header';
@@ -14,7 +16,8 @@ const nunito = Nunito({
 
 export const metadata: Metadata = {
   title: 'Aiqfome Magalu',
-  description: 'Um app de delivery feito com Next.js'
+  description: '2 maior app de delivery do Brasil',
+  icons: '/logo.svg'
 };
 
 export default function RootLayout({
@@ -25,8 +28,11 @@ export default function RootLayout({
   return (
     <html lang='pt-BR'>
       <body className={`${nunito.variable} font-sans antialiased`}>
-        <Header />
-        <main className='mx-auto max-w-4xl'>{children}</main>
+        <Providers>
+          <Header />
+          <main className='mx-auto max-w-4xl'>{children}</main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );
