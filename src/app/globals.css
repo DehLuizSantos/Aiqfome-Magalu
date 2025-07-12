@@ -6,7 +6,10 @@
   --neutrals-400: #a8adb7;
   --neutrals-500: #6d6f73;
   --neutrals-700: #393a3c;
+  --neutrals-900: #202326;
+  --teal-400: #00a296;
   --teal-600: #027a7a;
+  --green-500: #02a117;
   --white: #fff;
 }
 
@@ -16,8 +19,11 @@
   --color-neutrals-400: var(--neutrals-400);
   --color-neutrals-500: var(--neutrals-500);
   --color-neutrals-700: var(--neutrals-700);
+  --color-neutrals-900: var(--neutrals-900);
   --color-white: var(--white);
   --color-teal-600: var(--teal-600);
+  --color-teal-400: var(--teal-400);
+  --color-green-500: var(--green-500);
 }
 
 body {

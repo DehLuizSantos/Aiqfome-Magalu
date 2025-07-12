@@ -1,3 +1,5 @@
+import { Category } from './product';
+
 export interface RestaurantInterface {
   id: number;
   name: string;
@@ -16,11 +18,10 @@ export interface RestaurantInterface {
   isOpen: boolean;
   promotionRestaurant: boolean;
   category: 'lanches' | 'saudavel' | 'japones';
+  categories: Category[];
 }
 
-export type HomeRestaurantInterface = Pick<
+export type RestaurantInfosInterface = Pick<
   RestaurantInterface,
-  'id' | 'name' | 'rating' | 'image' | 'deliveryFee' | 'isOpen'
+  'estimatedDeliveryTime' | 'deliveryFee' | 'distance' | 'maxValueDeliveryFee' | 'rating' | 'minimumOrderPrice'
 >;
-
-export type OrderRestaurant = Pick<RestaurantInterface, 'id' | 'name' | 'isOpen' | 'image'>;
