@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 
 import ProductDetailsHeader from '@/components/molecules/ProductDetailsHeader';
+import ProductQuantityControler from '@/components/molecules/ProductQuantityControler';
 import { fetchRestaurants } from '@/services/restaurants';
 
 type ProductPageProps = Promise<{
@@ -20,9 +21,14 @@ export default async function ProductPage({ params }: { params: ProductPageProps
 
   if (!product) return notFound();
 
+  console.log(product);
+
   return (
     <div className=''>
-      <ProductDetailsHeader {...product} />
+      <div className=''>
+        <ProductDetailsHeader {...product} />
+        <ProductQuantityControler {...product} />
+      </div>
     </div>
   );
 }
