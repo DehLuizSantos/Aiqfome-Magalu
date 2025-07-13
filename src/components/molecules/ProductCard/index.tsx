@@ -13,7 +13,6 @@ interface RestaurantProductCardProps {
 }
 
 export function RestaurantProductCard({ product, id }: RestaurantProductCardProps) {
-  console.log(product.id);
   return (
     <Link
       href={`/restaurante/${id}/${product.id}`}

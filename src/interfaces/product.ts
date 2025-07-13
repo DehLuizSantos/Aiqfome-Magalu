@@ -20,7 +20,7 @@ export interface ProductCustomization {
   options: CustomizationOption[];
 }
 
-export interface Product {
+export interface ProductInterface {
   id: string;
   name: string;
   description: string;
@@ -33,10 +33,10 @@ export interface Product {
   customizations: ProductCustomization[];
 }
 
-export interface Category {
+export interface CategoryInterface {
   id: string;
   name: string;
   description: string;
   hasPromotions?: boolean;
-  products: Product[];
+  products: ProductInterface[];
 }
