@@ -18,7 +18,7 @@ export default function ProductDetailsHeader({
 }: ProductDetailHeaderInterface) {
   return (
     <div className='w-full'>
-      <Image src={image} alt={name} width={390} height={195} className='relative w-full object-cover' />
+      <Image src={image} alt={name} width={390} height={195} className='relative w-full object-cover' priority />
       <div className='p-4'>
         <h1 className='text-xl font-bold text-neutral-700'>{name}</h1>
         {hasPromotions ? (

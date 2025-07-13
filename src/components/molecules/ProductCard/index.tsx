@@ -3,12 +3,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { Product } from '@/interfaces/product';
-// import { RestaurantTitle } from './RestaurantTitle';
+import { ProductInterface } from '@/interfaces/product';
 import { formatCurrency } from '@/utils/formats';
 
 interface RestaurantProductCardProps {
-  product: Product;
+  product: ProductInterface;
   id: string;
 }
 

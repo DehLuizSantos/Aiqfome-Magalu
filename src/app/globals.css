@@ -1,7 +1,8 @@
 @import 'tailwindcss';
 
 :root {
-  --purple-700: #7b1fa2;
+  --purple-700: #580f78;
+  --purple-500: #7b1fa2;
   --neutrals-100: #eecffc;
   --neutrals-400: #a8adb7;
   --neutrals-500: #6d6f73;
@@ -15,6 +16,7 @@
 
 @theme inline {
   --color-purple-700: var(--purple-700);
+  --color-purple-500: var(--purple-500);
   --color-neutrals-100: var(--neutrals-100);
   --color-neutrals-400: var(--neutrals-400);
   --color-neutrals-500: var(--neutrals-500);

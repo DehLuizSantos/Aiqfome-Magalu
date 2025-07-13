@@ -1,3 +1,7 @@
 export default function MandatoryTag() {
-  return <div className='h-[28px] w-[78px] rounded-lg bg-neutral-700 text-white'>obrigatório</div>;
+  return (
+    <div className='flex h-[28px] w-[78px] items-center justify-center rounded-lg bg-neutral-700 text-xs text-white'>
+      obrigatório
+    </div>
+  );
 }

@@ -6,7 +6,7 @@ export interface CustomizationOption {
   price: number;
   basePrice?: number;
   hasPromotions?: boolean;
-  default?: boolean;
+  defaultChecked?: boolean;
 }
 
 export interface ProductCustomization {
