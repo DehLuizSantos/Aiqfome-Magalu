@@ -1,7 +1,10 @@
 'use client';
 
+import { useState } from 'react';
+
 import { CustomizationOption } from '@/interfaces/product';
 import { CustomizationTicketInterface } from '@/interfaces/ticket';
+import useNotificationStore from '@/stores/notificationStore';
 import useProductsStore from '@/stores/productStore';
 
 interface MultipleOptionProps extends CustomizationOption {
@@ -13,16 +16,24 @@ interface MultipleOptionProps extends CustomizationOption {
 
 export default function MultipleOption({ label, min, max, groupName, id, price, productId }: MultipleOptionProps) {
   const { products, setProducts } = useProductsStore();
+  const { addNotification } = useNotificationStore();
+
+  const allSelectedOfGroup = products.flatMap((p) => p.customization || []).filter((c) => c.groupName === groupName);
 
   const handleToggle = () => {
+    const alreadySelected = isChecked;
+
+    if (!alreadySelected && max && allSelectedOfGroup.length >= max) {
+      addNotification(`Você só pode selecionar até ${max} ${groupName}.`, 'error');
+      return;
+    }
+
     const updatedProducts = products.map((product) => {
       if (product.id !== productId) return product;
 
       const existingCustomization = product.customization || [];
 
-      const alreadyExists = existingCustomization.some((c) => c.groupName === groupName && c.label === label);
-
-      const updatedCustomization = alreadyExists
+      const updatedCustomization = alreadySelected
         ? existingCustomization.filter((c) => !(c.groupName === groupName && c.label === label))
         : [...existingCustomization, { groupName, label, price }];
 
@@ -37,11 +48,6 @@ export default function MultipleOption({ label, min, max, groupName, id, price, 
   const product = products.find((p) => p.id === productId);
   const isChecked = !!product?.customization?.some((c) => c.groupName === groupName && c.label === label);
 
-  const allMultipleProducts = products
-    .flatMap((product) => product.customization || [])
-    .filter((custom) => custom.groupName === 'acompanhamentos' || custom.groupName === 'adicionais');
-
-  console.log(allMultipleProducts);
   return (
     <div className='mt-4 flex items-center gap-2'>
       <input
@@ -50,8 +56,9 @@ export default function MultipleOption({ label, min, max, groupName, id, price, 
         disabled={products.length === 0}
         className='h-4 w-4'
         type='checkbox'
+        id={label}
       />
-      <label htmlFor=''>{label}</label>
+      <label htmlFor={label}>{label}</label>
     </div>
   );
 }

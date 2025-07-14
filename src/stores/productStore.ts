@@ -9,6 +9,8 @@ import { create } from 'zustand';
 interface ProductStoreInterface {
   products: ProductTicketInterface[];
   setProducts: (value: ProductTicketInterface[]) => void;
+  error: string;
+  setError: (value: string) => void;
 }
 
 // Função para salvar no sessionStorage sempre que os produtos mudarem
@@ -20,6 +22,10 @@ const syncWithSessionStorage = (products: ProductTicketInterface[]) => {
 
 const useProductsStore = create<ProductStoreInterface>((set) => ({
   products: [],
+  error: '',
+  setError: (value) => {
+    set({ error: value });
+  },
   setProducts: (value) => {
     syncWithSessionStorage(value); // Sincroniza com sessionStorage
     set({ products: value });
