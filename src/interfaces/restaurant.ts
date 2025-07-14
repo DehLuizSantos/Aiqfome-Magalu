@@ -1,4 +1,4 @@
-import { Category } from './product';
+import { CategoryInterface } from './product';
 
 export interface RestaurantInterface {
   id: number;
@@ -18,7 +18,7 @@ export interface RestaurantInterface {
   isOpen: boolean;
   promotionRestaurant: boolean;
   category: 'lanches' | 'saudavel' | 'japones';
-  categories: Category[];
+  categories: CategoryInterface[];
 }
 
 export type RestaurantInfosInterface = Pick<

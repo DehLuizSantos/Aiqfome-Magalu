@@ -6,7 +6,8 @@ export interface CustomizationOption {
   price: number;
   basePrice?: number;
   hasPromotions?: boolean;
-  default?: boolean;
+  defaultChecked?: string;
+  quantity?: number;
 }
 
 export interface ProductCustomization {
@@ -20,7 +21,7 @@ export interface ProductCustomization {
   options: CustomizationOption[];
 }
 
-export interface Product {
+export interface ProductInterface {
   id: string;
   name: string;
   description: string;
@@ -30,13 +31,14 @@ export interface Product {
   hasPromotions: boolean;
   multiplePrices: boolean;
   type?: string;
+  quantity?: number;
   customizations: ProductCustomization[];
 }
 
-export interface Category {
+export interface CategoryInterface {
   id: string;
   name: string;
   description: string;
   hasPromotions?: boolean;
-  products: Product[];
+  products: ProductInterface[];
 }
