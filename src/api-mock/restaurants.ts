@@ -967,9 +967,9 @@ export const mockRestaurants: RestaurantInterface[] = [
                 title: 'Escolha a bebida',
                 required: true,
                 options: [
-                  { id: 'coca', label: 'Coca-Cola', price: 0 },
-                  { id: 'fanta', label: 'Fanta', price: 0 },
-                  { id: 'agua', label: 'Água sem gás', price: 0 }
+                  { id: 'coca', label: 'Coca-Cola', price: 0, quantity: 0 },
+                  { id: 'fanta', label: 'Fanta', price: 0, quantity: 0 },
+                  { id: 'agua', label: 'Água sem gás', price: 0, quantity: 0 }
                 ]
               },
               {

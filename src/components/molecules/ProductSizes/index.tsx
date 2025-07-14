@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-import MandatoryTag from '@/components/atomos/MandatoryTag';
+import ProductCustumizationHeader from '@/components/atomos/ProductCustumizationHeader';
 import SizeOption from '@/components/atomos/SizeOption';
 import { ProductInterface } from '@/interfaces/product';
 
@@ -15,13 +15,12 @@ export default function ProductSizes({ customizations }: ProductSizesProps) {
 
   return (
     <div className='p-4'>
-      <div className='flex justify-between'>
-        <div className=''>
-          <h4 className='text-base font-bold text-neutral-900 lowercase'>{customizations[0].title}</h4>
-          <span className='text-xs font-bold text-neutral-500 lowercase'>{customizations[0].subtitle}</span>
-        </div>
-        {customizations[0].required && <MandatoryTag />}
-      </div>
+      <ProductCustumizationHeader
+        required={customizations[0].required}
+        subtitle={customizations[0].subtitle!}
+        title={customizations[0].title}
+      />
+
       <div className='mt-4'>
         {options.map((size) => (
           <SizeOption selected={selectedId === size.id} onSelect={(id) => setSelectedId(id)} {...size} key={size.id} />
