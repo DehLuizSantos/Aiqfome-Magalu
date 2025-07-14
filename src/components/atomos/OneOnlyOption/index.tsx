@@ -1,20 +1,41 @@
-import { CustomizationOption } from '@/interfaces/product';
+'use client';
+
+import { useEffect, useState } from 'react';
+
+import { CustomizationOption, ProductCustomization } from '@/interfaces/product';
 import { formatCurrency } from '@/utils/formats';
 
-interface SizeOptionProps extends CustomizationOption {
-  selected: boolean;
-  onSelect: (id: string) => void;
+interface OneOnlyOptionProps extends CustomizationOption {
+  groupName: string;
 }
 
-export default function SizeOption({
+export default function OneOnlyOption({
+  groupName,
+  id,
   label,
-  hasPromotions,
   price,
   basePrice,
-  id,
-  onSelect,
-  selected
-}: SizeOptionProps) {
+  defaultChecked,
+  hasPromotions
+}: OneOnlyOptionProps) {
+  const [selected, setSelected] = useState(defaultChecked ? id : '');
+
+  const handleSelect = () => {
+    localStorage.setItem(
+      groupName,
+      JSON.stringify({
+        selectedOption: { id, label, price }
+      })
+    );
+  };
+
+  // Verifica se esta opção está selecionada
+  const isChecked = () => {
+    if (typeof window === 'undefined') return false;
+    const current = JSON.parse(localStorage.getItem(groupName) ?? 'false');
+    return current.selectedOption?.id === id;
+  };
+
   return (
     <div className='mt-3'>
       <div className='flex items-center justify-between'>
@@ -23,9 +44,9 @@ export default function SizeOption({
             className='h-4 w-4 text-neutral-400'
             type='radio'
             id={id}
-            checked={selected!}
-            name={label}
-            onChange={() => onSelect(id)}
+            name={groupName}
+            checked={isChecked()}
+            onChange={handleSelect}
           />
           <label className='text-sm font-medium text-neutral-500' htmlFor={id}>
             {label}

@@ -1,10 +1,8 @@
 import { notFound } from 'next/navigation';
 
-import ProductAccompaniment from '@/components/molecules/ProductAccompaniment';
 import ProductDetailsHeader from '@/components/molecules/ProductDetailsHeader';
-import ProductDrinkOption from '@/components/molecules/ProductDrinkOption';
 import ProductQuantityControler from '@/components/molecules/ProductQuantityControler';
-import ProductSizes from '@/components/molecules/ProductSizes';
+import ProductCustomizations from '@/components/organismos/ProductCustomizations';
 import { ProductInterface } from '@/interfaces/product';
 import { fetchRestaurants } from '@/services/restaurants';
 
@@ -27,11 +25,6 @@ export default async function ProductPage({ params }: { params: ProductPageProps
 
   if (!product) return notFound();
 
-  const sizes = product.customizations.filter((custumization) => custumization.id === 'tamanho');
-  const accompaniment = product.customizations.filter((custumization) => custumization.id === 'acompanhamentos');
-  const drinkOptions = product.customizations.filter((custumization) => custumization.id === 'bebida');
-  console.log(product.customizations);
-
   return (
     <div className='h-full overflow-y-auto pb-[120px]'>
       <div className=''>
@@ -39,11 +32,7 @@ export default async function ProductPage({ params }: { params: ProductPageProps
         <div className='h-1 w-full bg-neutral-100' />
         <ProductQuantityControler {...product} />
         <div className='h-1 w-full bg-neutral-100' />
-        <ProductSizes customizations={sizes} />
-        <div className='h-1 w-full bg-neutral-100' />
-        <ProductAccompaniment customizations={accompaniment} />
-        <div className='h-1 w-full bg-neutral-100' />
-        <ProductDrinkOption customizations={drinkOptions} />
+        <ProductCustomizations customizations={product.customizations} />
       </div>
     </div>
   );
