@@ -4,12 +4,14 @@ import { useEffect, useState } from 'react';
 
 import PriceControler from '@/components/atomos/PriceControler';
 import { ProductInterface } from '@/interfaces/product';
+import useProductsStore from '@/stores/productStore';
 import { formatCurrency } from '@/utils/formats';
 
 type ProductQuantityControlerProps = Pick<ProductInterface, 'price' | 'name' | 'id'>;
 
 export default function ProductQuantityControler({ price, name, id }: ProductQuantityControlerProps) {
   const [quantity, setQuantity] = useState(0);
+  const { setProducts } = useProductsStore();
   const priceControler = quantity * price;
 
   useEffect(() => {
@@ -20,6 +22,8 @@ export default function ProductQuantityControler({ price, name, id }: ProductQua
       // Remove o produto se a quantidade for 0
       const updatedProducts = existingProducts.filter((p: any) => p.id !== id);
       localStorage.setItem('produtos', JSON.stringify(updatedProducts));
+      setProducts(updatedProducts);
+
       return;
     }
 
@@ -36,7 +40,7 @@ export default function ProductQuantityControler({ price, name, id }: ProductQua
         price
       });
     }
-
+    setProducts(existingProducts);
     localStorage.setItem('produtos', JSON.stringify(existingProducts));
   }, [quantity, id, name, price]);
 

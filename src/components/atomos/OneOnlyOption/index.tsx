@@ -18,22 +18,9 @@ export default function OneOnlyOption({
   defaultChecked,
   hasPromotions
 }: OneOnlyOptionProps) {
-  const [selected, setSelected] = useState(defaultChecked ? id : '');
-
-  const handleSelect = () => {
-    localStorage.setItem(
-      groupName,
-      JSON.stringify({
-        selectedOption: { id, label, price }
-      })
-    );
-  };
-
-  // Verifica se esta opção está selecionada
-  const isChecked = () => {
-    if (typeof window === 'undefined') return false;
-    const current = JSON.parse(localStorage.getItem(groupName) ?? 'false');
-    return current.selectedOption?.id === id;
+  const [checked, setChecked] = useState('');
+  const handleSelect = (id: string) => {
+    setChecked(id);
   };
 
   return (
@@ -45,8 +32,9 @@ export default function OneOnlyOption({
             type='radio'
             id={id}
             name={groupName}
-            checked={isChecked()}
-            onChange={handleSelect}
+            value={checked}
+            defaultChecked={defaultChecked}
+            onChange={() => handleSelect(id)}
           />
           <label className='text-sm font-medium text-neutral-500' htmlFor={id}>
             {label}

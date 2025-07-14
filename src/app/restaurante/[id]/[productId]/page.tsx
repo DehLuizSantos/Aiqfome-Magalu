@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 
+import ButtonSeeTicket from '@/components/atomos/ButtonSeeTicket';
 import ProductDetailsHeader from '@/components/molecules/ProductDetailsHeader';
 import ProductQuantityControler from '@/components/molecules/ProductQuantityControler';
 import ProductCustomizations from '@/components/organismos/ProductCustomizations';
@@ -29,11 +30,12 @@ export default async function ProductPage({ params }: { params: ProductPageProps
     <div className='h-full overflow-y-auto pb-[120px]'>
       <div className=''>
         <ProductDetailsHeader {...product} />
-        <div className='h-1 w-full bg-neutral-100' />
+        <div className='bg-neutrals-100 h-1 w-full' />
         <ProductQuantityControler {...product} />
-        <div className='h-1 w-full bg-neutral-100' />
+
         <ProductCustomizations customizations={product.customizations} />
       </div>
+      <ButtonSeeTicket />
     </div>
   );
 }

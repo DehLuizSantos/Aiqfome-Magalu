@@ -1192,15 +1192,15 @@ export const mockRestaurants: RestaurantInterface[] = [
                   {
                     id: 'medio',
                     label: 'médio',
-                    price: 19.9,
-                    basePrice: 23.9,
+                    price: 10.9,
+                    basePrice: 19.9,
                     hasPromotions: true,
                     defaultChecked: true
                   },
                   {
                     id: 'grande',
                     label: 'grande',
-                    price: 28.9
+                    price: 18.9
                   }
                 ]
               },
@@ -1219,8 +1219,8 @@ export const mockRestaurants: RestaurantInterface[] = [
                     price: 10
                   },
                   {
-                    id: 'refri',
-                    label: 'regrigerante',
+                    id: 'milk shake',
+                    label: 'milk shake',
                     price: 5
                   }
                 ]
@@ -1255,50 +1255,6 @@ export const mockRestaurants: RestaurantInterface[] = [
                     id: 'agua',
                     label: 'água sem gás',
                     price: 3
-                  }
-                ]
-              },
-              {
-                id: 'talher',
-                type: 'single',
-                required: false,
-                subtitle: 'escolha até 1',
-                title: 'precisa de talher?',
-                options: [
-                  {
-                    id: 'hashi',
-                    label: 'hashi',
-                    price: 0
-                  },
-                  {
-                    id: 'descartavel',
-                    label: 'garfo e faca descartável',
-                    price: 1
-                  }
-                ]
-              },
-              {
-                id: 'adicionais',
-                type: 'multiple',
-                required: false,
-                max: 2,
-                title: 'mais alguma coisa?',
-                subtitle: 'escolha até 2',
-                options: [
-                  {
-                    id: 'biscoito',
-                    label: 'biscoito da sorte',
-                    price: 2
-                  },
-                  {
-                    id: 'rolinho',
-                    label: 'rolinho primavera',
-                    price: 8
-                  },
-                  {
-                    id: 'guioza',
-                    label: 'guioza',
-                    price: 6
                   }
                 ]
               }

@@ -2,6 +2,7 @@ import DrinkOptions from '@/components/atomos/DrinkOptions';
 import MultipleOption from '@/components/atomos/MultipleOption';
 import OneOnlyOption from '@/components/atomos/OneOnlyOption';
 import ProductCustumizationHeader from '@/components/atomos/ProductCustumizationHeader';
+import TextArea from '@/components/atomos/TextArea';
 import { ProductCustomization } from '@/interfaces/product';
 
 type ProductCustomizationProps = {
@@ -13,6 +14,7 @@ export default function ProductCustomizations({ customizations }: ProductCustomi
     <div className='p-4'>
       {customizations.map((customization) => (
         <div key={customization.id}>
+          <div className='mb-4 h-1 w-full bg-neutral-100' />
           <div className=''>
             <ProductCustumizationHeader
               required={customization.required}
@@ -36,6 +38,8 @@ export default function ProductCustomizations({ customizations }: ProductCustomi
           </>
         </div>
       ))}
+      <div className='mb-4 h-1 w-full bg-neutral-100' />
+      <TextArea />
     </div>
   );
 }
