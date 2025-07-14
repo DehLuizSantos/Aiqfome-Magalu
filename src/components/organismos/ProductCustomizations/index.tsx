@@ -36,7 +36,7 @@ export default function ProductCustomizations({ customizations, productId }: Pro
                     min={customization.min}
                   />
                 ),
-                quantity: <DrinkOptions {...option} />
+                quantity: <DrinkOptions {...option} groupName={customization.id} productId={productId} {...option} />
               };
               return (
                 <div className='m-3' key={option.id}>

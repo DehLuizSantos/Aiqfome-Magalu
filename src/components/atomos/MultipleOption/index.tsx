@@ -6,6 +6,7 @@ import { CustomizationOption } from '@/interfaces/product';
 import { CustomizationTicketInterface } from '@/interfaces/ticket';
 import useNotificationStore from '@/stores/notificationStore';
 import useProductsStore from '@/stores/productStore';
+import { formatCurrency } from '@/utils/formats';
 
 interface MultipleOptionProps extends CustomizationOption {
   min?: number;
@@ -49,16 +50,19 @@ export default function MultipleOption({ label, min, max, groupName, id, price, 
   const isChecked = !!product?.customization?.some((c) => c.groupName === groupName && c.label === label);
 
   return (
-    <div className='mt-4 flex items-center gap-2'>
-      <input
-        onChange={handleToggle}
-        checked={isChecked}
-        disabled={products.length === 0}
-        className='h-4 w-4'
-        type='checkbox'
-        id={label}
-      />
-      <label htmlFor={label}>{label}</label>
+    <div className='flex justify-between'>
+      <div className='mt-4 flex items-center gap-2'>
+        <input
+          onChange={handleToggle}
+          checked={isChecked}
+          disabled={products.length === 0}
+          className='h-4 w-4'
+          type='checkbox'
+          id={label}
+        />
+        <label htmlFor={label}>{label}</label>
+      </div>
+      <span className='text-sm font-bold text-purple-500'>+{formatCurrency(price)}</span>
     </div>
   );
 }
