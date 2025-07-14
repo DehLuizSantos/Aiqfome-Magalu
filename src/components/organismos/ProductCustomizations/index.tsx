@@ -7,9 +7,10 @@ import { ProductCustomization } from '@/interfaces/product';
 
 type ProductCustomizationProps = {
   customizations: ProductCustomization[];
+  productId: string;
 };
 
-export default function ProductCustomizations({ customizations }: ProductCustomizationProps) {
+export default function ProductCustomizations({ customizations, productId }: ProductCustomizationProps) {
   return (
     <div className='p-4'>
       {customizations.map((customization) => (
@@ -25,7 +26,7 @@ export default function ProductCustomizations({ customizations }: ProductCustomi
           <>
             {customization.options.map((option) => {
               const custumizationTypes = {
-                single: <OneOnlyOption {...option} groupName={customization.type} />,
+                single: <OneOnlyOption {...option} groupName={customization.id} productId={productId} />,
                 multiple: <MultipleOption {...option} />,
                 quantity: <DrinkOptions {...option} />
               };

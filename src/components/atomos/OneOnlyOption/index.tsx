@@ -3,10 +3,13 @@
 import { useEffect, useState } from 'react';
 
 import { CustomizationOption, ProductCustomization } from '@/interfaces/product';
+import { CustomizationTicketInterface } from '@/interfaces/ticket';
+import useProductsStore from '@/stores/productStore';
 import { formatCurrency } from '@/utils/formats';
 
 interface OneOnlyOptionProps extends CustomizationOption {
   groupName: string;
+  productId: string;
 }
 
 export default function OneOnlyOption({
@@ -14,13 +17,42 @@ export default function OneOnlyOption({
   id,
   label,
   price,
+  productId,
   basePrice,
   defaultChecked,
   hasPromotions
 }: OneOnlyOptionProps) {
   const [checked, setChecked] = useState('');
+  const { setProducts, products } = useProductsStore();
+
+  useEffect(() => {
+    if (defaultChecked) {
+      setChecked(label);
+    }
+  }, [defaultChecked]);
+
   const handleSelect = (id: string) => {
     setChecked(id);
+    const updatedProducts = products.map((product) => {
+      if (product.id === productId) {
+        const newCustomization: CustomizationTicketInterface = {
+          groupName,
+          label,
+          price
+        };
+
+        // Remove outras opções do mesmo grupo se existirem
+        const filteredCustomizations = product.customization?.filter((c) => c.groupName !== groupName) || [];
+
+        return {
+          ...product,
+          customization: [...filteredCustomizations, newCustomization]
+        };
+      }
+      return product;
+    });
+
+    setProducts(updatedProducts);
   };
 
   return (
@@ -31,6 +63,7 @@ export default function OneOnlyOption({
             className='h-4 w-4 text-neutral-400'
             type='radio'
             id={id}
+            disabled={products.length === 0}
             name={groupName}
             value={checked}
             defaultChecked={defaultChecked}

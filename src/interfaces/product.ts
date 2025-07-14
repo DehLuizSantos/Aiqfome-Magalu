@@ -31,6 +31,7 @@ export interface ProductInterface {
   hasPromotions: boolean;
   multiplePrices: boolean;
   type?: string;
+  quantity?: number;
   customizations: ProductCustomization[];
 }
 

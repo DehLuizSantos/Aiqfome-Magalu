@@ -1,24 +1,23 @@
-import { ProductInterface } from '@/interfaces/product';
+import { ProductTicketInterface } from '@/interfaces/ticket';
 
 import { create } from 'zustand';
 
 interface ProductStoreInterface {
-  products: ProductInterface[];
-  setProducts: (value: ProductInterface[]) => void;
+  products: ProductTicketInterface[];
+  setProducts: (value: ProductTicketInterface[]) => void;
 }
 
-// Carrega os produtos do localStorage ao inicializar
-const loadProductsFromLocalStorage = (): ProductInterface[] => {
+// Função para salvar no sessionStorage sempre que os produtos mudarem
+const syncWithSessionStorage = (products: ProductTicketInterface[]) => {
   if (typeof window !== 'undefined') {
-    const produtosLocal = localStorage.getItem('produtos');
-    return produtosLocal ? JSON.parse(produtosLocal) : [];
+    sessionStorage.setItem('produtos', JSON.stringify(products));
   }
-  return [];
 };
 
 const useProductsStore = create<ProductStoreInterface>((set) => ({
-  products: loadProductsFromLocalStorage(),
+  products: typeof window !== 'undefined' ? JSON.parse(sessionStorage.getItem('produtos') || '[]') : [],
   setProducts: (value) => {
+    syncWithSessionStorage(value); // Sincroniza com sessionStorage
     set({ products: value });
   }
 }));

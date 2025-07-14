@@ -33,7 +33,7 @@ export default async function ProductPage({ params }: { params: ProductPageProps
         <div className='bg-neutrals-100 h-1 w-full' />
         <ProductQuantityControler {...product} />
 
-        <ProductCustomizations customizations={product.customizations} />
+        <ProductCustomizations productId={productId} customizations={product.customizations} />
       </div>
       <ButtonSeeTicket />
     </div>

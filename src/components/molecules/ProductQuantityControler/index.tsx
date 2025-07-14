@@ -11,37 +11,28 @@ type ProductQuantityControlerProps = Pick<ProductInterface, 'price' | 'name' | '
 
 export default function ProductQuantityControler({ price, name, id }: ProductQuantityControlerProps) {
   const [quantity, setQuantity] = useState(0);
-  const { setProducts } = useProductsStore();
+  const { products, setProducts } = useProductsStore();
   const priceControler = quantity * price;
 
   useEffect(() => {
-    const productAlredyRegister = localStorage.getItem('produtos');
-    const existingProducts = productAlredyRegister ? JSON.parse(productAlredyRegister) : [];
+    const updatedProducts = [...products];
 
     if (quantity === 0) {
       // Remove o produto se a quantidade for 0
-      const updatedProducts = existingProducts.filter((p: any) => p.id !== id);
-      localStorage.setItem('produtos', JSON.stringify(updatedProducts));
-      setProducts(updatedProducts);
-
-      return;
-    }
-
-    // Atualiza ou adiciona o produto
-    const productIndex = existingProducts.findIndex((p: any) => p.id === id);
-
-    if (productIndex >= 0) {
-      existingProducts[productIndex].quantity = quantity;
+      const filteredProducts = updatedProducts.filter((p) => p.id !== id);
+      setProducts(filteredProducts);
     } else {
-      existingProducts.push({
-        quantity,
-        name,
-        id,
-        price
-      });
+      // Atualiza ou adiciona o produto
+      const productIndex = updatedProducts.findIndex((p) => p.id === id);
+
+      if (productIndex >= 0) {
+        updatedProducts[productIndex].quantity = quantity;
+      } else {
+        updatedProducts.push({ quantity, name, id, price });
+      }
+
+      setProducts(updatedProducts);
     }
-    setProducts(existingProducts);
-    localStorage.setItem('produtos', JSON.stringify(existingProducts));
   }, [quantity, id, name, price]);
 
   return (
