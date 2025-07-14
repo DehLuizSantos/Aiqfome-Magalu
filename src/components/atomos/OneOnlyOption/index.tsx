@@ -66,7 +66,7 @@ export default function OneOnlyOption({
             disabled={products.length === 0}
             name={groupName}
             value={checked}
-            defaultChecked={defaultChecked}
+            defaultChecked={defaultChecked ? true : false}
             onChange={() => handleSelect(id)}
           />
           <label className='text-sm font-medium text-neutral-500' htmlFor={id}>

@@ -47,7 +47,7 @@ export const mockRestaurants: RestaurantInterface[] = [
                     price: 10.9,
                     basePrice: 19.9,
                     hasPromotions: true,
-                    defaultChecked: true
+                    defaultChecked: 'medio'
                   },
                   {
                     id: 'grande',
@@ -192,7 +192,7 @@ export const mockRestaurants: RestaurantInterface[] = [
                     id: 'nenhum',
                     label: 'Não adicionar',
                     price: 0,
-                    defaultChecked: true
+                    defaultChecked: 'nenhum'
                   }
                 ]
               }
@@ -236,7 +236,7 @@ export const mockRestaurants: RestaurantInterface[] = [
                     id: 'sem-molho',
                     label: 'Sem molho',
                     price: 0,
-                    defaultChecked: true
+                    defaultChecked: 'sem-molho'
                   }
                 ]
               },
@@ -315,7 +315,7 @@ export const mockRestaurants: RestaurantInterface[] = [
                     id: 'sem-molho',
                     label: 'Sem molho',
                     price: 0,
-                    defaultChecked: true
+                    defaultChecked: 'sem-molho'
                   }
                 ]
               },
@@ -390,7 +390,7 @@ export const mockRestaurants: RestaurantInterface[] = [
                     id: 'sem-molho',
                     label: 'Sem molho',
                     price: 0,
-                    defaultChecked: true
+                    defaultChecked: 'sem-molho'
                   }
                 ]
               },
@@ -442,7 +442,7 @@ export const mockRestaurants: RestaurantInterface[] = [
                     id: 'normal',
                     label: 'Normal',
                     price: 0,
-                    defaultChecked: true
+                    defaultChecked: 'normal'
                   },
                   {
                     id: 'grande',
@@ -516,7 +516,7 @@ export const mockRestaurants: RestaurantInterface[] = [
                     id: 'normal',
                     label: 'Normal',
                     price: 0,
-                    defaultChecked: true
+                    defaultChecked: 'normal'
                   },
                   {
                     id: 'grande',
@@ -626,7 +626,7 @@ export const mockRestaurants: RestaurantInterface[] = [
                     id: 'leve',
                     label: 'Leve',
                     price: 0,
-                    defaultChecked: true
+                    defaultChecked: 'leve'
                   },
                   {
                     id: 'medio',
@@ -650,7 +650,7 @@ export const mockRestaurants: RestaurantInterface[] = [
                     id: 'normal',
                     label: 'Normal',
                     price: 0,
-                    defaultChecked: true
+                    defaultChecked: 'normal'
                   },
                   {
                     id: 'grande',
@@ -812,7 +812,7 @@ export const mockRestaurants: RestaurantInterface[] = [
                 required: true,
                 subtitle: 'Escolha 1',
                 options: [
-                  { id: '15cm', label: '15 cm', price: 0, defaultChecked: true },
+                  { id: '15cm', label: '15 cm', price: 0, defaultChecked: '15cm' },
                   { id: '30cm', label: '30 cm', price: 10 }
                 ]
               },
@@ -849,7 +849,7 @@ export const mockRestaurants: RestaurantInterface[] = [
                   { id: 'maionese', label: 'Maionese', price: 0 },
                   { id: 'chipotle', label: 'Chipotle', price: 0 },
                   { id: 'barbecue', label: 'Barbecue', price: 0 },
-                  { id: 'sem', label: 'Sem molho', price: 0, defaultChecked: true }
+                  { id: 'sem', label: 'Sem molho', price: 0, defaultChecked: 'sem' }
                 ]
               },
               {
@@ -910,7 +910,7 @@ export const mockRestaurants: RestaurantInterface[] = [
                 options: [
                   { id: 'maionese', label: 'Maionese', price: 0 },
                   { id: 'mostarda', label: 'Mostarda', price: 0 },
-                  { id: 'sem', label: 'Sem molho', price: 0, defaultChecked: true }
+                  { id: 'sem', label: 'Sem molho', price: 0, defaultChecked: 'sem' }
                 ]
               }
             ]
@@ -957,7 +957,7 @@ export const mockRestaurants: RestaurantInterface[] = [
                 title: 'Tamanho do combo',
                 required: true,
                 options: [
-                  { id: 'normal', label: 'Normal', price: 0, defaultChecked: true },
+                  { id: 'normal', label: 'Normal', price: 0, defaultChecked: 'normal' },
                   { id: 'duplo', label: 'Duplo', price: 6 }
                 ]
               },
@@ -1015,7 +1015,7 @@ export const mockRestaurants: RestaurantInterface[] = [
                 options: [
                   { id: 'barbecue', label: 'Barbecue', price: 0 },
                   { id: 'ranch', label: 'Ranch', price: 0 },
-                  { id: 'sem', label: 'Sem molho', price: 0, defaultChecked: true }
+                  { id: 'sem', label: 'Sem molho', price: 0, defaultChecked: 'sem' }
                 ]
               },
               {
@@ -1025,7 +1025,7 @@ export const mockRestaurants: RestaurantInterface[] = [
                 required: false,
                 options: [
                   { id: 'descartavel', label: 'Garfo e faca descartável', price: 1 },
-                  { id: 'nao', label: 'Não preciso', price: 0, defaultChecked: true }
+                  { id: 'nao', label: 'Não preciso', price: 0, defaultChecked: 'nao' }
                 ]
               }
             ]
@@ -1072,7 +1072,7 @@ export const mockRestaurants: RestaurantInterface[] = [
                 title: 'Tamanho do combo',
                 required: true,
                 options: [
-                  { id: 'normal', label: 'Normal', price: 0, defaultChecked: true },
+                  { id: 'normal', label: 'Normal', price: 0, defaultChecked: 'normal' },
                   { id: 'duplo', label: 'Duplo', price: 6 }
                 ]
               },
@@ -1130,7 +1130,7 @@ export const mockRestaurants: RestaurantInterface[] = [
                 options: [
                   { id: 'barbecue', label: 'Barbecue', price: 0 },
                   { id: 'ranch', label: 'Ranch', price: 0 },
-                  { id: 'sem', label: 'Sem molho', price: 0, defaultChecked: true }
+                  { id: 'sem', label: 'Sem molho', price: 0, defaultChecked: 'sem' }
                 ]
               },
               {
@@ -1140,7 +1140,7 @@ export const mockRestaurants: RestaurantInterface[] = [
                 required: false,
                 options: [
                   { id: 'descartavel', label: 'Garfo e faca descartável', price: 1 },
-                  { id: 'nao', label: 'Não preciso', price: 0, defaultChecked: true }
+                  { id: 'nao', label: 'Não preciso', price: 0, defaultChecked: 'nao' }
                 ]
               }
             ]
@@ -1195,7 +1195,7 @@ export const mockRestaurants: RestaurantInterface[] = [
                     price: 10.9,
                     basePrice: 19.9,
                     hasPromotions: true,
-                    defaultChecked: true
+                    defaultChecked: 'medio'
                   },
                   {
                     id: 'grande',
@@ -1286,7 +1286,7 @@ export const mockRestaurants: RestaurantInterface[] = [
                     id: 'nenhum',
                     label: 'Não adicionar',
                     price: 0,
-                    defaultChecked: true
+                    defaultChecked: 'proteina'
                   }
                 ]
               }
@@ -1336,7 +1336,7 @@ export const mockRestaurants: RestaurantInterface[] = [
                 required: true,
                 subtitle: 'Escolha 1',
                 options: [
-                  { id: '15cm', label: '15 cm', price: 0, defaultChecked: true },
+                  { id: '15cm', label: '15 cm', price: 0, defaultChecked: '15cm' },
                   { id: '30cm', label: '30 cm', price: 10 }
                 ]
               },
@@ -1373,7 +1373,7 @@ export const mockRestaurants: RestaurantInterface[] = [
                   { id: 'maionese', label: 'Maionese', price: 0 },
                   { id: 'chipotle', label: 'Chipotle', price: 0 },
                   { id: 'barbecue', label: 'Barbecue', price: 0 },
-                  { id: 'sem', label: 'Sem molho', price: 0, defaultChecked: true }
+                  { id: 'sem', label: 'Sem molho', price: 0, defaultChecked: 'sem' }
                 ]
               },
               {
@@ -1434,7 +1434,7 @@ export const mockRestaurants: RestaurantInterface[] = [
                 options: [
                   { id: 'maionese', label: 'Maionese', price: 0 },
                   { id: 'mostarda', label: 'Mostarda', price: 0 },
-                  { id: 'sem', label: 'Sem molho', price: 0, defaultChecked: true }
+                  { id: 'sem', label: 'Sem molho', price: 0, defaultChecked:'sem' }
                 ]
               }
             ]
@@ -1481,7 +1481,7 @@ export const mockRestaurants: RestaurantInterface[] = [
                 title: 'Tamanho do combo',
                 required: true,
                 options: [
-                  { id: 'normal', label: 'Normal', price: 0, defaultChecked: true },
+                  { id: 'normal', label: 'Normal', price: 0, defaultChecked: 'normal' },
                   { id: 'duplo', label: 'Duplo', price: 6 }
                 ]
               },
@@ -1539,7 +1539,7 @@ export const mockRestaurants: RestaurantInterface[] = [
                 options: [
                   { id: 'barbecue', label: 'Barbecue', price: 0 },
                   { id: 'ranch', label: 'Ranch', price: 0 },
-                  { id: 'sem', label: 'Sem molho', price: 0, defaultChecked: true }
+                  { id: 'sem', label: 'Sem molho', price: 0, defaultChecked: 'sem' }
                 ]
               },
               {
@@ -1549,7 +1549,7 @@ export const mockRestaurants: RestaurantInterface[] = [
                 required: false,
                 options: [
                   { id: 'descartavel', label: 'Garfo e faca descartável', price: 1 },
-                  { id: 'nao', label: 'Não preciso', price: 0, defaultChecked: true }
+                  { id: 'nao', label: 'Não preciso', price: 0, defaultChecked: 'nao' }
                 ]
               }
             ]
@@ -1596,7 +1596,7 @@ export const mockRestaurants: RestaurantInterface[] = [
                 title: 'Tamanho do combo',
                 required: true,
                 options: [
-                  { id: 'normal', label: 'Normal', price: 0, defaultChecked: true },
+                  { id: 'normal', label: 'Normal', price: 0, defaultChecked: 'normal' },
                   { id: 'duplo', label: 'Duplo', price: 6 }
                 ]
               },
@@ -1654,7 +1654,7 @@ export const mockRestaurants: RestaurantInterface[] = [
                 options: [
                   { id: 'barbecue', label: 'Barbecue', price: 0 },
                   { id: 'ranch', label: 'Ranch', price: 0 },
-                  { id: 'sem', label: 'Sem molho', price: 0, defaultChecked: true }
+                  { id: 'sem', label: 'Sem molho', price: 0, defaultChecked: 'sem' }
                 ]
               },
               {
@@ -1664,7 +1664,7 @@ export const mockRestaurants: RestaurantInterface[] = [
                 required: false,
                 options: [
                   { id: 'descartavel', label: 'Garfo e faca descartável', price: 1 },
-                  { id: 'nao', label: 'Não preciso', price: 0, defaultChecked: true }
+                  { id: 'nao', label: 'Não preciso', price: 0, defaultChecked: 'nao' }
                 ]
               }
             ]
