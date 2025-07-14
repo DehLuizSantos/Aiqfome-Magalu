@@ -27,7 +27,15 @@ export default function ProductCustomizations({ customizations, productId }: Pro
             {customization.options.map((option) => {
               const custumizationTypes = {
                 single: <OneOnlyOption {...option} groupName={customization.id} productId={productId} />,
-                multiple: <MultipleOption {...option} />,
+                multiple: (
+                  <MultipleOption
+                    {...option}
+                    groupName={customization.id}
+                    productId={productId}
+                    max={customization.max}
+                    min={customization.min}
+                  />
+                ),
                 quantity: <DrinkOptions {...option} />
               };
               return (

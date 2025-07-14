@@ -130,6 +130,7 @@ export const mockRestaurants: RestaurantInterface[] = [
                   {
                     id: 'hashi',
                     label: 'hashi',
+                    defaultChecked: 'hashi',
                     price: 0
                   },
                   {
@@ -274,6 +275,7 @@ export const mockRestaurants: RestaurantInterface[] = [
                   {
                     id: 'hashi',
                     label: 'Hashi',
+                    defaultChecked: 'hashi',
                     price: 0
                   },
                   {
@@ -353,6 +355,7 @@ export const mockRestaurants: RestaurantInterface[] = [
                   {
                     id: 'hashi',
                     label: 'Hashi',
+                    defaultChecked: 'hashi',
                     price: 0
                   },
                   {
@@ -403,6 +406,7 @@ export const mockRestaurants: RestaurantInterface[] = [
                   {
                     id: 'hashi',
                     label: 'Hashi',
+                    defaultChecked: 'hashi',
                     price: 0
                   },
                   {
@@ -485,6 +489,7 @@ export const mockRestaurants: RestaurantInterface[] = [
                   {
                     id: 'hashi',
                     label: 'Hashi',
+                    defaultChecked: 'hashi',
                     price: 0
                   },
                   {
@@ -1434,7 +1439,7 @@ export const mockRestaurants: RestaurantInterface[] = [
                 options: [
                   { id: 'maionese', label: 'Maionese', price: 0 },
                   { id: 'mostarda', label: 'Mostarda', price: 0 },
-                  { id: 'sem', label: 'Sem molho', price: 0, defaultChecked:'sem' }
+                  { id: 'sem', label: 'Sem molho', price: 0, defaultChecked: 'sem' }
                 ]
               }
             ]

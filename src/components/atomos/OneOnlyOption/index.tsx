@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import { CustomizationOption, ProductCustomization } from '@/interfaces/product';
 import { CustomizationTicketInterface } from '@/interfaces/ticket';
@@ -24,12 +24,6 @@ export default function OneOnlyOption({
 }: OneOnlyOptionProps) {
   const [checked, setChecked] = useState('');
   const { setProducts, products } = useProductsStore();
-
-  useEffect(() => {
-    if (defaultChecked) {
-      setChecked(label);
-    }
-  }, [defaultChecked]);
 
   const handleSelect = (id: string) => {
     setChecked(id);
@@ -65,7 +59,7 @@ export default function OneOnlyOption({
             id={id}
             disabled={products.length === 0}
             name={groupName}
-            value={checked}
+            value={defaultChecked ? defaultChecked : checked}
             defaultChecked={defaultChecked ? true : false}
             onChange={() => handleSelect(id)}
           />

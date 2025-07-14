@@ -1,3 +1,7 @@
+'use client';
+
+import { useEffect } from 'react';
+
 import { ProductTicketInterface } from '@/interfaces/ticket';
 
 import { create } from 'zustand';
@@ -15,7 +19,7 @@ const syncWithSessionStorage = (products: ProductTicketInterface[]) => {
 };
 
 const useProductsStore = create<ProductStoreInterface>((set) => ({
-  products: typeof window !== 'undefined' ? JSON.parse(sessionStorage.getItem('produtos') || '[]') : [],
+  products: [],
   setProducts: (value) => {
     syncWithSessionStorage(value); // Sincroniza com sessionStorage
     set({ products: value });
@@ -23,3 +27,19 @@ const useProductsStore = create<ProductStoreInterface>((set) => ({
 }));
 
 export default useProductsStore;
+
+export function useInitProductsFromSession() {
+  const setProducts = useProductsStore((state) => state.setProducts);
+
+  useEffect(() => {
+    const stored = sessionStorage.getItem('produtos');
+    if (stored) {
+      try {
+        const parsed = JSON.parse(stored) as ProductTicketInterface[];
+        setProducts(parsed);
+      } catch (err) {
+        console.error('Erro ao parsear produtos do sessionStorage:', err);
+      }
+    }
+  }, [setProducts]);
+}
