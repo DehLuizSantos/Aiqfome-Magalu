@@ -10,7 +10,7 @@ import { CustomizationTicketInterface, ProductTicketInterface } from '@/interfac
 import useProductsStore from '@/stores/productStore';
 import { formatCurrency } from '@/utils/formats';
 
-import TicketProductCustomizations from '../TicketProductCustumizations';
+import TicketProductCustomizations from '../../molecules/TicketProductCustumizations';
 
 type TicketProductHeaderProps = {
   title: string;

@@ -1,7 +1,6 @@
 import { notFound } from 'next/navigation';
 
 import ButtonSeeTicket from '@/components/atomos/ButtonSeeTicket';
-import NotificationContainer from '@/components/molecules/NotificationsContainer';
 import ProductDetailsHeader from '@/components/molecules/ProductDetailsHeader';
 import ProductQuantityControler from '@/components/molecules/ProductQuantityControler';
 import ProductCustomizations from '@/components/organismos/ProductCustomizations';
@@ -39,7 +38,6 @@ export default async function ProductPage({ params }: { params: ProductPageProps
         <ProductCustomizations productId={productId} customizations={product.customizations} />
       </div>
       <ButtonSeeTicket id={id} />
-      <NotificationContainer />
     </div>
   );
 }

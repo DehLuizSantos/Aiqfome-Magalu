@@ -14,7 +14,9 @@ export default function ProductQuantityControler({ price, name, id }: ProductQua
   const productsStorage = sessionStorage.getItem('produtos');
   const products = JSON.parse(productsStorage!);
   const productFiltered = products?.filter((product: ProductQuantityControlerProps) => product.id === id);
-  const [quantity, setQuantity] = useState(productFiltered[0]?.quantity || 0);
+
+  const quantityInitial = productFiltered[0]?.quantity || 0;
+  const [quantity, setQuantity] = useState(quantityInitial || 0);
   const priceControler = quantity * price;
 
   useEffect(() => {
