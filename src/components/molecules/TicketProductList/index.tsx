@@ -1,12 +1,16 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import Image from 'next/image';
 import Link from 'next/link';
 
 import PriceControler from '@/components/atomos/PriceControler';
+import { CustomizationTicketInterface, ProductTicketInterface } from '@/interfaces/ticket';
+import useProductsStore from '@/stores/productStore';
 import { formatCurrency } from '@/utils/formats';
+
+import TicketProductCustomizations from '../TicketProductCustumizations';
 
 type TicketProductHeaderProps = {
   title: string;
@@ -14,16 +18,30 @@ type TicketProductHeaderProps = {
   basePrice: number;
   restaurantId: string;
   productId: string;
+  customization: CustomizationTicketInterface[] | null;
 };
 
-export default function TicketProductHeader({
+export default function TicketProductList({
   basePrice,
   quantity,
   title,
   restaurantId,
+  customization,
   productId
 }: TicketProductHeaderProps) {
   const [quantityChanger, setQuantity] = useState(quantity);
+
+  const { setProducts } = useProductsStore();
+  const productsSession = sessionStorage.getItem('produtos');
+  const products: ProductTicketInterface[] = JSON.parse(productsSession!);
+
+  useEffect(() => {
+    const updated = products.map((product) =>
+      product.id === productId ? { ...product, quantity: quantityChanger } : product
+    );
+
+    setProducts(updated);
+  }, [quantityChanger]);
   return (
     <div className='my-2 w-full px-4'>
       <div className='mb-2 flex items-center justify-between'>
@@ -40,6 +58,8 @@ export default function TicketProductHeader({
         </Link>
         <PriceControler quantity={quantityChanger} setQuantity={setQuantity} />
       </div>
+
+      <TicketProductCustomizations customization={customization!} />
     </div>
   );
 }

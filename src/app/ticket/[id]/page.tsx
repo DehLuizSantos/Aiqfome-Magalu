@@ -1,7 +1,9 @@
 import { notFound } from 'next/navigation';
 
 import TicketHeader from '@/components/molecules/TicketHeader';
-import TicketProductList from '@/components/organismos/TicketProductList';
+import TicketProductList from '@/components/molecules/TicketProductList';
+import TicketSubtotal from '@/components/molecules/TicketSubtotal';
+import TicketProductsList from '@/components/organismos/TicketProductsList';
 import { fetchRestaurants } from '@/services/restaurants';
 
 type TicketPageProps = Promise<{
@@ -18,7 +20,8 @@ export default async function TicketPage({ params }: { params: TicketPageProps }
   return (
     <div>
       <TicketHeader image={restaurant.image} title={restaurant.name} />
-      <TicketProductList id={id} />
+      <TicketProductsList id={id} />
+      <TicketSubtotal />
     </div>
   );
 }
