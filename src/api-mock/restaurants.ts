@@ -506,7 +506,7 @@ export const mockRestaurants: RestaurantInterface[] = [
             name: 'Filadélfia',
             basePrice: 13.99,
             description: 'Arroz, salmão fresco, cream cheese e cebolinha',
-            image: '/images/products/temaki-filadelfia.png',
+            image: '/images/products/temaki-philadelphia.png',
             price: 13.99,
             hasPromotions: false,
             multiplePrices: false,
@@ -520,13 +520,13 @@ export const mockRestaurants: RestaurantInterface[] = [
                   {
                     id: 'normal',
                     label: 'Normal',
-                    price: 0,
+                    price: 13.99,
                     defaultChecked: 'normal'
                   },
                   {
                     id: 'grande',
                     label: 'Grande',
-                    price: 4
+                    price: 20.99
                   }
                 ]
               },
@@ -558,10 +558,10 @@ export const mockRestaurants: RestaurantInterface[] = [
             description:
               'Escolha 3 ingredientes: shimeji, alface americana, rúcula, pepino, tomate seco, cream cheese, maionese...',
             image: '/images/products/temaki-mix.png',
-            price: 13.99,
+            price: 24.99,
             hasPromotions: false,
             multiplePrices: true,
-            basePrice: 13.99,
+            basePrice: 24.99,
             customizations: [
               {
                 id: 'ingredientes',
@@ -614,7 +614,7 @@ export const mockRestaurants: RestaurantInterface[] = [
             id: 'temaki-salmao-picante',
             name: 'Salmão picante',
             description: 'Alga, arroz, salmão fresco, pimenta e cebolinha',
-            image: '/images/products/temaki-salmao-picante.png',
+            image: '/images/products/temaki-salmao.png',
             price: 13.99,
             hasPromotions: false,
             basePrice: 13.99,
@@ -688,7 +688,7 @@ export const mockRestaurants: RestaurantInterface[] = [
             id: 'agua-com-gas',
             name: 'Água Com Gás',
             description: 'Garrafa 500ml',
-            image: '/images/products/agua-gas.png',
+            image: '/images/products/agua.png',
             basePrice: 3.5,
             price: 3.5,
             hasPromotions: false,
@@ -699,7 +699,7 @@ export const mockRestaurants: RestaurantInterface[] = [
             id: 'coca-lata',
             name: 'Coca-Cola Lata',
             description: '350ml',
-            image: '/images/products/coca.png',
+            image: '/images/products/coca-cola.png',
             basePrice: 6,
             price: 6,
             hasPromotions: false,
@@ -716,18 +716,6 @@ export const mockRestaurants: RestaurantInterface[] = [
             hasPromotions: false,
             multiplePrices: false,
             customizations: []
-          },
-          {
-            id: 'suco-laranja',
-            name: 'Suco Prats Laranja',
-            description: 'Suco natural sem conservantes',
-            image: '/images/products/suco.png',
-            basePrice: 7,
-            price: 7,
-            hasPromotions: false,
-            multiplePrices: false,
-            type: 'vegan',
-            customizations: []
           }
         ]
       },
@@ -741,7 +729,7 @@ export const mockRestaurants: RestaurantInterface[] = [
             id: 'biscoito-da-sorte',
             name: 'Biscoito da Sorte',
             description: 'Biscoito crocante com mensagem personalizada',
-            image: '/images/products/biscoito.png',
+            image: '/images/products/biscoito-sorte.png',
             basePrice: 2,
             price: 2,
             hasPromotions: false,
@@ -753,22 +741,10 @@ export const mockRestaurants: RestaurantInterface[] = [
             id: 'rolinho-primavera-doce',
             name: 'Rolinho Primavera Doce',
             description: 'Massa crocante recheada com banana e canela',
-            image: '/images/products/rolinho-doce.png',
+            image: '/images/products/rolinho.png',
             basePrice: 8,
             price: 8,
             hasPromotions: false,
-            multiplePrices: false,
-            customizations: [],
-            type: 'candy'
-          },
-          {
-            id: 'guioza-chocolate',
-            name: 'Guioza de Chocolate',
-            description: 'Guioza recheado com creme de chocolate, servido quente',
-            image: '/images/products/guioza-choco.png',
-            basePrice: 9,
-            price: 7,
-            hasPromotions: true,
             multiplePrices: false,
             customizations: [],
             type: 'candy'

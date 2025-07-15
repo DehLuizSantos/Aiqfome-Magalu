@@ -10,8 +10,11 @@ import { formatCurrency } from '@/utils/formats';
 type ProductQuantityControlerProps = Pick<ProductInterface, 'price' | 'name' | 'id'>;
 
 export default function ProductQuantityControler({ price, name, id }: ProductQuantityControlerProps) {
-  const [quantity, setQuantity] = useState(0);
-  const { products, setProducts } = useProductsStore();
+  const { setProducts } = useProductsStore();
+  const productsStorage = sessionStorage.getItem('produtos');
+  const products = JSON.parse(productsStorage!);
+  const productFiltered = products?.filter((product: ProductQuantityControlerProps) => product.id === id);
+  const [quantity, setQuantity] = useState(productFiltered[0]?.quantity || 0);
   const priceControler = quantity * price;
 
   useEffect(() => {
@@ -46,7 +49,7 @@ export default function ProductQuantityControler({ price, name, id }: ProductQua
       </div>
       {quantity === 0 ? (
         <button
-          onClick={() => setQuantity((e) => e + 1)}
+          onClick={() => setQuantity((e: number) => e + 1)}
           className='h-[40px] w-[108px] rounded-lg bg-neutral-500 text-white'>
           adicionar
         </button>

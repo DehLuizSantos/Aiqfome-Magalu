@@ -16,16 +16,18 @@ type ProductPageProps = Promise<{
 export default async function ProductPage({ params }: { params: ProductPageProps }) {
   const { id, productId } = await params;
   const restaurants = await fetchRestaurants();
-
   const restaurant = restaurants.find((r) => r.id === Number(id));
 
   if (!restaurant) return notFound();
 
-  const product: ProductInterface | undefined = restaurant!
+  // Busca o produto padrão
+  let product: ProductInterface | undefined = restaurant!
     .categories!.flatMap((category) => category.products)
     .find((p) => p.id === productId);
 
   if (!product) return notFound();
+
+  console.log(product);
 
   return (
     <div className='h-full overflow-y-auto pb-[120px]'>
