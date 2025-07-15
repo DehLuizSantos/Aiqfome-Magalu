@@ -14,9 +14,11 @@ export default function ButtonSeeTicket({ id }: ButtonSeeTicketProps) {
   return (
     <>
       {products.length > 0 && (
-        <div className='bg-neutrals-100 fixed bottom-[1px] z-4 w-full border-t border-solid border-transparent px-6 py-4'>
+        <div className='bg-neutrals-100 fixed right-0 bottom-[-5px] left-0 z-4 m-auto w-full max-w-4xl border-t border-solid border-transparent px-6 py-4'>
           <Link href={`/ticket/${id}`}>
-            <button className='w-full rounded-[8px] bg-purple-500 px-4 py-3 font-bold text-white'>ver ticket</button>
+            <button className='w-full cursor-pointer rounded-[8px] bg-purple-500 px-4 py-3 font-bold text-white'>
+              ver ticket
+            </button>
           </Link>
         </div>
       )}
