@@ -30,7 +30,7 @@ export default async function ProductPage({ params }: { params: ProductPageProps
   return (
     <div className='h-full overflow-y-auto pb-[120px]'>
       <div className=''>
-        <ProductDetailsHeader {...product} />
+        <ProductDetailsHeader {...product} restaurantId={id} />
         <div className='bg-neutrals-100 h-1 w-full' />
         <ProductQuantityControler {...product} />
 
