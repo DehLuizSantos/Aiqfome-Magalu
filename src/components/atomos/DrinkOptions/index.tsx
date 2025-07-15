@@ -12,9 +12,10 @@ type DrinkOptionProps = {
   price: number;
   productId: string;
   groupName: string; // ex: 'bebidas'
+  id: string;
 };
 
-export default function DrinkOptions({ label, price, productId, groupName }: DrinkOptionProps) {
+export default function DrinkOptions({ label, price, productId, groupName, id }: DrinkOptionProps) {
   const { products, setProducts } = useProductsStore();
 
   const product = products.find((p) => p.id === productId);
@@ -42,7 +43,7 @@ export default function DrinkOptions({ label, price, productId, groupName }: Dri
         );
       } else {
         // Adiciona novo
-        updatedCustomization = [...existingCustomization, { groupName, label, price, quantity }];
+        updatedCustomization = [...existingCustomization, { groupName, label, price, quantity, id }];
       }
 
       return {

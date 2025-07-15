@@ -18,7 +18,7 @@ export default async function TicketPage({ params }: { params: TicketPageProps }
   return (
     <div>
       <TicketHeader image={restaurant.image} title={restaurant.name} />
-      <TicketProductList />
+      <TicketProductList id={id} />
     </div>
   );
 }

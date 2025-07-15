@@ -1,13 +1,32 @@
 'use client';
 
-import useProductsStore from '@/stores/productStore';
+import TicketProductCustomizations from '@/components/molecules/TicketProductCustumizations';
+import TicketProductHeader from '@/components/molecules/TicketProductHeader';
+import { ProductTicketInterface } from '@/interfaces/ticket';
 
-export default function TicketProductList() {
-  const { products } = useProductsStore();
-  console.log(products);
+type TicketProductListProps = {
+  id: string;
+};
+
+export default function TicketProductList({ id }: TicketProductListProps) {
+  const productsLocal = sessionStorage.getItem('produtos');
+  const products: ProductTicketInterface[] = JSON.parse(productsLocal!);
+
   return (
-    <div className='p-4'>
-      <h2>aqui</h2>
+    <div className=''>
+      {products.map((product) => (
+        <TicketProductHeader
+          key={product.id}
+          basePrice={product.price}
+          quantity={product.quantity}
+          title={product.name}
+          productId={product.id}
+          restaurantId={id}
+        />
+      ))}
+      {products.map((product, index) => (
+        <TicketProductCustomizations customization={product.customization!} key={index} />
+      ))}
     </div>
   );
 }
