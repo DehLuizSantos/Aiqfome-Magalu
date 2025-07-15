@@ -2,8 +2,11 @@
 
 import { useEffect, useState } from 'react';
 
+import { useRouter } from 'next/navigation';
+
 import PriceControler from '@/components/atomos/PriceControler';
 import { ProductInterface } from '@/interfaces/product';
+import { ProductTicketInterface } from '@/interfaces/ticket';
 import useProductsStore from '@/stores/productStore';
 import { formatCurrency } from '@/utils/formats';
 
@@ -23,9 +26,11 @@ export default function ProductQuantityControler({ price, name, id }: ProductQua
     const updatedProducts = [...products];
 
     if (quantity === 0) {
-      // Remove o produto se a quantidade for 0
-      const filteredProducts = updatedProducts.filter((p) => p.id !== id);
-      setProducts(filteredProducts);
+      const filtered = products.filter((product: ProductTicketInterface) => product.id !== id);
+      setProducts(filtered);
+      sessionStorage.setItem('produtos', JSON.stringify(filtered));
+
+      return;
     } else {
       // Atualiza ou adiciona o produto
       const productIndex = updatedProducts.findIndex((p) => p.id === id);

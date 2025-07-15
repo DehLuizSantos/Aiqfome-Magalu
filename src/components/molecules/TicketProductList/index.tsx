@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 import PriceControler from '@/components/atomos/PriceControler';
 import { CustomizationTicketInterface, ProductTicketInterface } from '@/interfaces/ticket';
@@ -30,12 +31,19 @@ export default function TicketProductList({
   productId
 }: TicketProductHeaderProps) {
   const [quantityChanger, setQuantity] = useState(quantity);
-
   const { setProducts } = useProductsStore();
   const productsSession = sessionStorage.getItem('produtos');
   const products: ProductTicketInterface[] = JSON.parse(productsSession!);
+  const router = useRouter();
 
   useEffect(() => {
+    if (quantityChanger === 0) {
+      const filtered = products.filter((product) => product.id !== productId);
+      setProducts(filtered);
+      sessionStorage.setItem('produtos', JSON.stringify(filtered));
+      router.back();
+      return;
+    }
     const updated = products.map((product) =>
       product.id === productId ? { ...product, quantity: quantityChanger } : product
     );
