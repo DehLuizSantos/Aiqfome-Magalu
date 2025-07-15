@@ -36,7 +36,7 @@ export default async function ProductPage({ params }: { params: ProductPageProps
 
         <ProductCustomizations productId={productId} customizations={product.customizations} />
       </div>
-      <ButtonSeeTicket />
+      <ButtonSeeTicket id={id} />
       <NotificationContainer />
     </div>
   );
