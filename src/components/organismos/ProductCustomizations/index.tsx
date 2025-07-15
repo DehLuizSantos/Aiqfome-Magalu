@@ -48,7 +48,7 @@ export default function ProductCustomizations({ customizations, productId }: Pro
         </div>
       ))}
       <div className='mb-4 h-1 w-full bg-neutral-100' />
-      <TextArea />
+      <TextArea productId={productId} />
     </div>
   );
 }

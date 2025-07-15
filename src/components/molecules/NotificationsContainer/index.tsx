@@ -39,7 +39,7 @@ export default function NotificationContainer() {
   const { notifications } = useNotificationStore();
 
   return (
-    <div className='fixed top-0 left-1/2 z-50 flex h-[60px] w-full max-w-md -translate-x-1/2 flex-col items-center space-y-2'>
+    <div className='fixed top-[60px] left-1/2 z-9 flex h-[60px] w-full max-w-md -translate-x-1/2 flex-col items-center space-y-2'>
       {notifications.map((n) => (
         <AnimatedNotification key={n.id} {...n} type={n.type || 'info'} />
       ))}

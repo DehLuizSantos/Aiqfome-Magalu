@@ -1,7 +1,6 @@
 import { notFound } from 'next/navigation';
 
 import ButtonSeeTicket from '@/components/atomos/ButtonSeeTicket';
-import NotificationContainer from '@/components/molecules/NotificationsContainer';
 import ProductDetailsHeader from '@/components/molecules/ProductDetailsHeader';
 import ProductQuantityControler from '@/components/molecules/ProductQuantityControler';
 import ProductCustomizations from '@/components/organismos/ProductCustomizations';
@@ -16,12 +15,12 @@ type ProductPageProps = Promise<{
 export default async function ProductPage({ params }: { params: ProductPageProps }) {
   const { id, productId } = await params;
   const restaurants = await fetchRestaurants();
-
   const restaurant = restaurants.find((r) => r.id === Number(id));
 
   if (!restaurant) return notFound();
 
-  const product: ProductInterface | undefined = restaurant!
+  // Busca o produto padrão
+  let product: ProductInterface | undefined = restaurant!
     .categories!.flatMap((category) => category.products)
     .find((p) => p.id === productId);
 
@@ -37,7 +36,6 @@ export default async function ProductPage({ params }: { params: ProductPageProps
         <ProductCustomizations productId={productId} customizations={product.customizations} />
       </div>
       <ButtonSeeTicket id={id} />
-      <NotificationContainer />
     </div>
   );
 }

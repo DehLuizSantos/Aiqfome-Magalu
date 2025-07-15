@@ -2,25 +2,35 @@
 
 import { useEffect, useState } from 'react';
 
+import { useRouter } from 'next/navigation';
+
 import PriceControler from '@/components/atomos/PriceControler';
 import { ProductInterface } from '@/interfaces/product';
+import { ProductTicketInterface } from '@/interfaces/ticket';
 import useProductsStore from '@/stores/productStore';
 import { formatCurrency } from '@/utils/formats';
 
 type ProductQuantityControlerProps = Pick<ProductInterface, 'price' | 'name' | 'id'>;
 
 export default function ProductQuantityControler({ price, name, id }: ProductQuantityControlerProps) {
-  const [quantity, setQuantity] = useState(0);
-  const { products, setProducts } = useProductsStore();
+  const { setProducts } = useProductsStore();
+  const productsStorage = sessionStorage.getItem('produtos');
+  const products = JSON.parse(productsStorage! ?? '[]');
+  const productFiltered = products?.filter((product: ProductQuantityControlerProps) => product.id === id);
+
+  const quantityInitial = productFiltered![0]?.quantity || 0;
+  const [quantity, setQuantity] = useState(quantityInitial || 0);
   const priceControler = quantity * price;
 
   useEffect(() => {
     const updatedProducts = [...products];
 
     if (quantity === 0) {
-      // Remove o produto se a quantidade for 0
-      const filteredProducts = updatedProducts.filter((p) => p.id !== id);
-      setProducts(filteredProducts);
+      const filtered = products.filter((product: ProductTicketInterface) => product.id !== id);
+      setProducts(filtered);
+      sessionStorage.setItem('produtos', JSON.stringify(filtered));
+
+      return;
     } else {
       // Atualiza ou adiciona o produto
       const productIndex = updatedProducts.findIndex((p) => p.id === id);
@@ -46,7 +56,7 @@ export default function ProductQuantityControler({ price, name, id }: ProductQua
       </div>
       {quantity === 0 ? (
         <button
-          onClick={() => setQuantity((e) => e + 1)}
+          onClick={() => setQuantity((e: number) => e + 1)}
           className='h-[40px] w-[108px] rounded-lg bg-neutral-500 text-white'>
           adicionar
         </button>
