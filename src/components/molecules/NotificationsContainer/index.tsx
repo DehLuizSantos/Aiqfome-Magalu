@@ -15,7 +15,7 @@ function AnimatedNotification({ id, message, type }: AnimatedNotificationProps) 
   const removeNotification = useNotificationStore((s) => s.removeNotification);
 
   useEffect(() => {
-    const timer = setTimeout(() => setFadeOut(true), 2500); // Começa a sair antes
+    const timer = setTimeout(() => setFadeOut(true), 2500);
     const fullTimer = setTimeout(() => removeNotification(id), 3000);
     return () => {
       clearTimeout(timer);
@@ -23,11 +23,15 @@ function AnimatedNotification({ id, message, type }: AnimatedNotificationProps) 
     };
   }, [id, removeNotification]);
 
-  const baseColor = type === 'success' ? 'bg-green-500' : type === 'error' ? 'bg-red-500' : 'bg-blue-500';
+  const baseColor = {
+    success: 'bg-green-500',
+    error: 'bg-red-500',
+    info: 'bg-blue-500'
+  }[type];
 
   return (
     <div
-      className={`w-full rounded px-4 py-3 text-sm text-white shadow transition-all duration-300 ${baseColor} ${
+      className={`pointer-events-auto w-full rounded px-4 py-3 text-sm text-white shadow-md transition-all duration-300 ${baseColor} ${
         fadeOut ? 'animate-fade-out-up' : 'animate-fade-in-down'
       }`}>
       {message}
@@ -39,7 +43,7 @@ export default function NotificationContainer() {
   const { notifications } = useNotificationStore();
 
   return (
-    <div className='fixed top-[60px] left-1/2 z-9 flex h-[60px] w-full max-w-md -translate-x-1/2 flex-col items-center space-y-2'>
+    <div className='pointer-events-none fixed top-[120px] left-1/2 z-50 flex w-full max-w-md -translate-x-1/2 flex-col items-center space-y-2 px-4'>
       {notifications.map((n) => (
         <AnimatedNotification key={n.id} {...n} type={n.type || 'info'} />
       ))}
