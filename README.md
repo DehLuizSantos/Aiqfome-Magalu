@@ -46,8 +46,8 @@ Instale as dependências:
 
 npm install
 
-cp .env.example .env
-Edite o arquivo .env com suas configurações.
+
+npm run dev
 ```
 ---
 ### 📂 Estrutura do Projeto
@@ -79,22 +79,6 @@ TESTIQFOME/
 
 ```
 ---
-### 💻 Desenvolvimento
-```bash
-Inicie o servidor de desenvolvimento:
-
-bash
-npm run dev
-Acesse no navegador:
-
-http://localhost:3000
-Monitoramento do banco:
-npx prisma studio
-
-```
-
-
-
 
 ## 💬 Considerações Finais
 
