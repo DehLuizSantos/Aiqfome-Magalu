@@ -1,9 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
-import { CustomizationOption, ProductCustomization } from '@/interfaces/product';
-import { CustomizationTicketInterface } from '@/interfaces/ticket';
+import { CustomizationOption } from '@/interfaces/product';
+import { CustomizationTicketInterface, ProductTicketInterface } from '@/interfaces/ticket';
 import useProductsStore from '@/stores/productStore';
 import { formatCurrency } from '@/utils/formats';
 
@@ -22,54 +22,91 @@ export default function OneOnlyOption({
   defaultChecked,
   hasPromotions
 }: OneOnlyOptionProps) {
-  const [checked, setChecked] = useState('');
-  const { setProducts, products } = useProductsStore();
+  const { products, setProducts } = useProductsStore();
+  const [selectedValue, setSelectedValue] = useState('');
 
-  const handleSelect = (id: string) => {
-    setChecked(id);
-    const updatedProducts = products.map((product) => {
-      if (product.id === productId) {
-        const newCustomization: CustomizationTicketInterface = {
-          groupName,
-          label,
-          id,
-          price
-        };
+  useEffect(() => {
+    // 1. Busca no Zustand
+    const product = products.find((p) => p.id === productId);
+    const selectedOption = product?.customization?.find((c) => c.groupName === groupName);
 
-        // Remove outras opções do mesmo grupo se existirem
-        const filteredCustomizations = product.customization?.filter((c) => c.groupName !== groupName) || [];
+    if (selectedOption) {
+      setSelectedValue(selectedOption.id);
+      return;
+    }
 
-        return {
-          ...product,
-          customization: [...filteredCustomizations, newCustomization]
-        };
+    // 2. Busca no sessionStorage para 'tamanho' ou 'talheres'
+    if (['tamanho', 'talheres'].includes(groupName)) {
+      try {
+        const sessionData = sessionStorage.getItem('produtos');
+        const sessionProducts: ProductTicketInterface[] = sessionData ? JSON.parse(sessionData) : [];
+
+        const sessionProduct = sessionProducts.find((p) => p.id === productId);
+        const sessionOption = sessionProduct?.customization?.find((c) => c.groupName === groupName);
+
+        if (sessionOption) {
+          setSelectedValue(sessionOption.id);
+          return;
+        }
+      } catch (error) {
+        console.error('Erro ao processar sessionStorage:', error);
       }
-      return product;
+    }
+  }, [products, productId, groupName, id]);
+
+  const handleSelect = useCallback(() => {
+    const updatedProducts = products.map((product) => {
+      if (product.id !== productId) return product;
+
+      const newCustomization: CustomizationTicketInterface = {
+        groupName,
+        label,
+        id,
+        price
+      };
+
+      const existingCustomizations = product.customization ?? [];
+
+      const updatedCustomizations = [
+        ...existingCustomizations.filter((c) => c.groupName !== groupName),
+        newCustomization
+      ];
+
+      return {
+        ...product,
+        customization: updatedCustomizations
+      };
     });
 
     setProducts(updatedProducts);
-  };
+    sessionStorage.setItem('produtos', JSON.stringify(updatedProducts));
+    setSelectedValue(id);
+  }, [id, groupName, label, price, productId, products, setProducts]);
+
+  const isProductInCart = products.some((p) => p.id === productId);
 
   return (
     <div className='mt-3'>
       <div className='flex items-center justify-between'>
         <div className='flex items-center gap-2'>
           <input
-            className='h-4 w-4 text-neutral-400'
-            type='radio'
+            className='h-4 w-4 rounded-full text-neutral-400'
+            type='checkbox'
             id={id}
-            disabled={products.length === 0}
             name={groupName}
-            value={defaultChecked ? defaultChecked : checked}
-            defaultChecked={defaultChecked ? true : false}
-            onChange={() => handleSelect(id)}
+            value={selectedValue}
+            checked={selectedValue === id}
+            onChange={handleSelect}
+            disabled={!isProductInCart}
           />
-          <label className='text-sm font-medium text-neutral-500' htmlFor={id}>
+          <label
+            htmlFor={id}
+            className={`text-sm font-medium ${!isProductInCart ? 'text-neutral-300' : 'text-neutral-500'}`}>
             {label}
           </label>
         </div>
 
-        <div className=''>
+        <div>
           {hasPromotions ? (
             <>
               <span className='text-xs font-bold text-neutral-500'>de {formatCurrency(basePrice!)} por </span>

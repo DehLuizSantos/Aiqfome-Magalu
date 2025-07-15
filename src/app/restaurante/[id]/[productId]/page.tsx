@@ -26,8 +26,6 @@ export default async function ProductPage({ params }: { params: ProductPageProps
 
   if (!product) return notFound();
 
-  console.log(product);
-
   return (
     <div className='h-full overflow-y-auto pb-[120px]'>
       <div className=''>

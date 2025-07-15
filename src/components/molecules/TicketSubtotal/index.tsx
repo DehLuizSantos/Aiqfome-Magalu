@@ -9,7 +9,7 @@ import useProductsStore from '@/stores/productStore';
 import { formatCurrency } from '@/utils/formats';
 
 export default function TicketSubtotal() {
-  const { total } = useProductsStore();
+  const { total, setProducts } = useProductsStore();
   const router = useRouter();
 
   const { addNotification } = useNotificationStore();
@@ -23,6 +23,7 @@ export default function TicketSubtotal() {
     } else {
       addNotification('Pedido realizado com sucesso!', 'success');
       sessionStorage.setItem('produtos', '[]');
+      setProducts([]);
       router.push('/');
     }
   };
