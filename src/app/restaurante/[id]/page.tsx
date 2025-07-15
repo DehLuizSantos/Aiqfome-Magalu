@@ -20,7 +20,7 @@ export default async function RestaurantPage({ params }: { params: RestaurantPag
 
   return (
     <div className='mt-2 flex flex-col'>
-      <div className='container mx-auto min-h-[calc(100vh-190px)] max-w-[1000px]'>
+      <div className='container mx-auto min-h-[calc(100vh+220px)] max-w-[1000px]'>
         <div className='flex-grow'>
           <div className='space-y-3 py-4'>
             <RestaurantHeader logo={restaurant.image} name={restaurant.name} />

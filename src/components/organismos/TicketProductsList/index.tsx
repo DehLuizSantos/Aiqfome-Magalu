@@ -10,6 +10,7 @@ type TicketProductListProps = {
 export default function TicketProductsList({ id }: TicketProductListProps) {
   const productsLocal = sessionStorage.getItem('produtos');
   const products: ProductTicketInterface[] = JSON.parse(productsLocal!);
+
   return (
     <div className=''>
       {products.map((product) => (

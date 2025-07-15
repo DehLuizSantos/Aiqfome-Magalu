@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 
+import { ProductTicketInterface } from '@/interfaces/ticket';
 import useProductsStore from '@/stores/productStore';
 
 type ButtonSeeTicketProps = {

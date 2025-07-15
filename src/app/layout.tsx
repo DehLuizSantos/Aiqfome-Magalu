@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Nunito } from 'next/font/google';
 
 import Providers from '@/Providers';
+import NotificationContainer from '@/components/molecules/NotificationsContainer';
 import { Footer } from '@/components/templates/Footer';
 import { Header } from '@/components/templates/Header';
 
@@ -32,6 +33,7 @@ export default function RootLayout({
           <Header />
           <main className='mx-auto max-w-4xl'>{children}</main>
           <Footer />
+          <NotificationContainer />
         </Providers>
       </body>
     </html>

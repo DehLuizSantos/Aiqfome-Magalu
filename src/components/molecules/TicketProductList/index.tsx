@@ -4,13 +4,14 @@ import { useEffect, useState } from 'react';
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 import PriceControler from '@/components/atomos/PriceControler';
 import { CustomizationTicketInterface, ProductTicketInterface } from '@/interfaces/ticket';
 import useProductsStore from '@/stores/productStore';
 import { formatCurrency } from '@/utils/formats';
 
-import TicketProductCustomizations from '../TicketProductCustumizations';
+import TicketProductCustomizations from '../../molecules/TicketProductCustumizations';
 
 type TicketProductHeaderProps = {
   title: string;
@@ -30,18 +31,28 @@ export default function TicketProductList({
   productId
 }: TicketProductHeaderProps) {
   const [quantityChanger, setQuantity] = useState(quantity);
-
   const { setProducts } = useProductsStore();
   const productsSession = sessionStorage.getItem('produtos');
   const products: ProductTicketInterface[] = JSON.parse(productsSession!);
+  const router = useRouter();
 
   useEffect(() => {
+    if (quantityChanger === 0) {
+      const filtered = products.filter((product) => product.id !== productId);
+      setProducts(filtered);
+      sessionStorage.setItem('produtos', JSON.stringify(filtered));
+      router.back();
+      return;
+    }
     const updated = products.map((product) =>
       product.id === productId ? { ...product, quantity: quantityChanger } : product
     );
 
     setProducts(updated);
   }, [quantityChanger]);
+
+  const currentProduct = products.find((p) => p.id === productId);
+  const observation = currentProduct?.observation;
   return (
     <div className='my-2 w-full px-4'>
       <div className='mb-2 flex items-center justify-between'>
@@ -60,6 +71,12 @@ export default function TicketProductList({
       </div>
 
       <TicketProductCustomizations customization={customization!} />
+      {observation && (
+        <div className='rounded-[4px] bg-neutral-100 p-1'>
+          <span className='text-xs font-bold text-neutral-700'>observação: </span>
+          <span className='text-xs font-semibold text-neutral-700'>{observation}</span>
+        </div>
+      )}
     </div>
   );
 }
