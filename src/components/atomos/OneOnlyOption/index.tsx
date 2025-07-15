@@ -32,6 +32,7 @@ export default function OneOnlyOption({
         const newCustomization: CustomizationTicketInterface = {
           groupName,
           label,
+          id,
           price
         };
 

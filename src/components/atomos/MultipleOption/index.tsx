@@ -36,7 +36,7 @@ export default function MultipleOption({ label, min, max, groupName, id, price, 
 
       const updatedCustomization = alreadySelected
         ? existingCustomization.filter((c) => !(c.groupName === groupName && c.label === label))
-        : [...existingCustomization, { groupName, label, price }];
+        : [...existingCustomization, { groupName, label, price, id }];
 
       return {
         ...product,

@@ -3,6 +3,7 @@ export interface CustomizationTicketInterface {
   label: string;
   price?: number;
   quantity?: number;
+  id: string;
 }
 
 export interface ProductTicketInterface {
