@@ -24,7 +24,7 @@ Extras:
 -  Validações máximas e minimas de custumizações nos produtos ✅
 -  Notificações de validação e sucesso ✅
 -  Dados mockados com simução de requisição ✅
--  Versão de homologação disponivel na versel ✅
+-  Versão de homologação disponivel na vercel ✅
 
 
 ---
@@ -52,6 +52,7 @@ npm run dev
 ---
 ### 📂 Estrutura do Projeto
 #### Arquitetura utilizada: **Atomic Design**
+##### Motivo da ultilização: **O Atomic Design promove uma estrutura hierárquica e lógica para os componentes da interface**
 ```bash
 TESTIQFOME/
 ├── src/
