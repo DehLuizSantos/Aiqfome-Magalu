@@ -50,6 +50,9 @@ export default function TicketProductList({
 
     setProducts(updated);
   }, [quantityChanger]);
+
+  const currentProduct = products.find((p) => p.id === productId);
+  const observation = currentProduct?.observation;
   return (
     <div className='my-2 w-full px-4'>
       <div className='mb-2 flex items-center justify-between'>
@@ -68,6 +71,12 @@ export default function TicketProductList({
       </div>
 
       <TicketProductCustomizations customization={customization!} />
+      {observation && (
+        <div className='rounded-[4px] bg-neutral-100 p-1'>
+          <span className='text-xs font-bold text-neutral-700'>observação: </span>
+          <span className='text-xs font-semibold text-neutral-700'>{observation}</span>
+        </div>
+      )}
     </div>
   );
 }

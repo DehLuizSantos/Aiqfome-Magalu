@@ -852,7 +852,7 @@ export const mockRestaurants: RestaurantInterface[] = [
             id: 'sub-vegetariano',
             name: 'Vegetariano',
             description: 'Sanduíche recheado apenas com vegetais frescos e molho',
-            image: '/images/products/sub-vegetariano.png',
+            image: '/images/products/subway-vegetariano.png',
             basePrice: 18.9,
             price: 18.9,
             hasPromotions: false,
